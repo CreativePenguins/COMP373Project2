@@ -1,2 +1,2 @@
-**COMP 373 Project 1***
+**COMP 373 Project 1**
 ---
