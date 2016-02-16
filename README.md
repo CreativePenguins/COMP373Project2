@@ -1,1 +1,2 @@
-"# COMP373Project1" 
+**COMP 373 Project 1**
+---
