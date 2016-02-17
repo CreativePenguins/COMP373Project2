@@ -4,11 +4,12 @@ package com.fms.model.users;
 public class Tenants {
 
     // Attributes
-    private String tenID;
+    private String tenID; // Primary key
     private boolean primary;
     private String firstName;
     private String lastName;
-    private int roomNumber; // Not the ID, but will be in format [Floor|Rm#]
+    private int roomID; // This is the reference to the room.
+
 
     // Accessors and Mutators
 
@@ -44,11 +45,11 @@ public class Tenants {
         this.lastName = lastName;
     }
 
-    public int getRoomNumber() {
-        return roomNumber;
+    public int getRoomID() {
+        return roomID;
     }
 
-    public void setRoomNumber(int roomNumber) {
-        this.roomNumber = roomNumber;
+    public void setRoomID(int roomID) {
+        this.roomID = roomID;
     }
 }
