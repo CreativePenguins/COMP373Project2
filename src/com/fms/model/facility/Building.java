@@ -1,12 +1,17 @@
 package com.fms.model.facility;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Building {
 	
 	private String BuildingID;
-	private String AddressID;
+	private Address address;
 	private int Capacity;
-	private int roomsFilled;
+	private int RoomsFilled;
 	private int IssueCount;
+	private ArrayList<Room> Rooms = new ArrayList<Room>();
+	
+	public Building(){}
 	
 	public String getBuildingID() {
 		return BuildingID;
@@ -14,11 +19,11 @@ public class Building {
 	public void setBuildingID(String buildingID) {
 		BuildingID = buildingID;
 	}
-	public String getAddressID() {
-		return AddressID;
+	public Address getAddressID() {
+		return address;
 	}
-	public void setAddressID(String addressID) {
-		AddressID = addressID;
+	public void setAddressID(Address addressID) {
+		address = addressID;
 	}
 	public int getCapacity() {
 		return Capacity;
@@ -27,15 +32,21 @@ public class Building {
 		Capacity = capacity;
 	}
 	public int getRoomsFilled() {
-		return roomsFilled;
+		return RoomsFilled;
 	}
 	public void setRoomsFilled(int roomsFilled) {
-		this.roomsFilled = roomsFilled;
+		this.RoomsFilled = roomsFilled;
 	}
 	public int getIssueCount() {
 		return IssueCount;
 	}
 	public void setIssueCount(int issueCount) {
 		IssueCount = issueCount;
+	}
+	public ArrayList<Room> getRooms(){
+		return Rooms;
+	}
+	public void addRoom(Room room){
+		Rooms.add(room);
 	}
 }

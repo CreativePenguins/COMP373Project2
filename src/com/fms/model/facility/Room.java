@@ -1,13 +1,15 @@
 package com.fms.model.facility;
+import java.util.ArrayList;
+import java.util.List;
+import com.fms.model.users.*;
 
 public class Room {
 	private String RoomID;
 	private int Floor;
 	private int RoomNo;
-	private String BuildingID;
-	private String PrimaryTenantID;
+	private Tenants PrimaryTenantID;
 	private boolean vacant;
-	private int TenantNumber;
+	private ArrayList<Tenants> tenants = new ArrayList<Tenants>();
 	
 	public String getRoomID() {
 		return RoomID;
@@ -33,10 +35,10 @@ public class Room {
 	public void setBuildingID(String buildingID) {
 		BuildingID = buildingID;
 	}
-	public String getPrimaryTenantID() {
+	public Tenants getPrimaryTenant() {
 		return PrimaryTenantID;
 	}
-	public void setPrimaryTenantID(String primaryTenantID) {
+	public void setPrimaryTenantID(Tenants primaryTenantID) {
 		PrimaryTenantID = primaryTenantID;
 	}
 	public boolean isVacant() {
@@ -46,9 +48,12 @@ public class Room {
 		this.vacant = vacant;
 	}
 	public int getTenantNumber() {
-		return TenantNumber;
+		return tenants.size();
 	}
-	public void setTenantNumber(int tenantNumber) {
-		TenantNumber = tenantNumber;
+	public void addTenant(Tenants tenant) {
+		tenants.add(tenant);
+	}
+	public ArrayList<Tenants> getTenants(){
+		return tenants;
 	}
 }

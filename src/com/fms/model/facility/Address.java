@@ -16,7 +16,8 @@ public class Address {
 		state = st;
 		zip =z;
 	}
-
+	public Address (){}
+	
 	public String getAddressID() {
 		return AddressID;
 	}
