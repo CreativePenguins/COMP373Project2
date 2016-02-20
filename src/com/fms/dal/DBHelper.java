@@ -12,16 +12,12 @@ public class DBHelper {
 		 
 		System.out.println("DBHelper: -------- PostgreSQL " + "JDBC Connection  ------------");
  
-		try {
-			
+		try {	
 			System.out.println(Class.forName("org.postgresql.Driver"));
- 
 		} catch (ClassNotFoundException e) {
- 
 			System.out.println("DBHelper: Check Where  your PostgreSQL JDBC Driver exist and " + "Include in your library path!");
 			e.printStackTrace();
 			return null;
- 
 		}
  
 		System.out.println("DBHelper: PostgreSQL JDBC Driver Registered!");
@@ -29,7 +25,7 @@ public class DBHelper {
 		Connection connection = null;
  
 		try {
- 
+
 			connection = DriverManager.getConnection("jdbc:postgresql://127.0.0.1:5432/BookStore", "postgres", "gilbert11");
 				Statement st = connection.createStatement();
 				ResultSet rs = st.executeQuery("SELECT VERSION()");
@@ -49,7 +45,6 @@ public class DBHelper {
 		if (connection != null) {
 			System.out.println("DBHelper: You have a database connection!");
 		}
-		
 		return connection;
 	}
 }
