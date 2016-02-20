@@ -1,16 +1,20 @@
 package com.fms.model.users;
+import java.util.ArrayList;
+import java.util.List;
+import com.fms.model.maintenance.*; 
 
 public class Employees {
 
     // Attributes
     private String ID;
-    private int maxIssues;
-    private String issueTypesID;
+    private int maxIssues = 10;
+    private ArrayList<IssueType> specialities = new ArrayList<IssueType>();
     private String firstName;
     private String lastName;
 
+    public Employees(){}
+    
     // Accessors and mutators
-
     public String getID() {
         return ID;
     }
