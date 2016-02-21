@@ -8,7 +8,8 @@ public class Tenants extends Users {
     private boolean primary;
 
     // Accessors and Mutators
-
+    public Tenants(){}
+    
     public String getTenID() {
         return tenID;
     }

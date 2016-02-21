@@ -26,16 +26,28 @@ public class Building {
 	public String getBuildingID() {
 		return BuildingID;
 	}
-	public Address getAddressID() {
+	public void setBuildingID(String id) {
+		BuildingID = id;
+	}
+	public Address getAddress() {
 		return address;
+	}
+	public void setAddress(Address address) {
+		this.address = address;
 	}
 	public int getIssueCount() {
 		return issues.size();
+	}
+	public ArrayList<Issues> getIssues(){
+		return issues;
 	}
 	public void addIssue(Issues i) {
 		issues.add(i);
 	}
 	public ArrayList<Room> getRooms(){
 		return rooms;
+	}
+	public void addRoom(Room r){
+		rooms.add(r);
 	}
 }

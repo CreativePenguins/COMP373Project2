@@ -25,16 +25,12 @@ public class Employees extends Users {
         return maxIssues;
     }
 
-    public void setMaxIssues(int maxIssues) {
-        this.maxIssues = maxIssues;
+    public ArrayList<IssueType> getSpecialities() {
+        return specialities;
     }
 
-    public String getIssueTypesID() {
-        return issueTypesID;
-    }
-
-    public void setIssueTypesID(String issueTypesID) {
-        this.issueTypesID = issueTypesID;
+    public void addSpecialty(IssueType issueType) {
+        specialities.add(issueType);
     }
 
 }

@@ -16,7 +16,7 @@ public class Issues {
     private Tenants reporter;
     private Room roomLocation;
     private Building buildingLocation;
-    private String date;
+    private String creationDate;
 
     // Methods
     public Issues(Tenants reporter, Room roomLocation, Building buildingLocation){
@@ -25,61 +25,78 @@ public class Issues {
     	this.buildingLocation = buildingLocation;
     	setDate();
     }
+    public Issues(){}
     
-    public String getId() {
-        return Issueid;
-    }
-
-    public void setId(String id) {
-        this.Issueid = id;
-    }
-
-    public IssueType getIssueType() {
-        return issueType;
-    }
-
-    public void setIssueType(IssueType issueType) {
-        this.issueType = issueType;
-    }
-
-    public Employees getAssignee() {
-        return assignee;
-    }
-
-    public void setAssignee(Employees employee) {
-        this.assignee = employee;
-    }
-
-    public String getComments() {
-        return comments;
-    }
-
-    public void setComments(String comments) {
-        this.comments = comments;
-    }
-
-    public Tenants getReporter() {
-        return this.reporter;
-    }
-
-    public Room getRoom() {
-        return this.roomLocation;
-    }
-
-    public Building getBuilding() {
-        return buildingLocation;
-    }
-
     //we only want to use this method upon creation of the issue
     private boolean setDate() {
             DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
             //get current date time with Date()
             Date d = new Date();
-            date = dateFormat.format(d);
+            creationDate = dateFormat.format(d);
             return true;
     }
 
-    public String getDate() {
-        return date;
-    }
+	public String getIssueid() {
+		return Issueid;
+	}
+
+	public void setIssueid(String issueid) {
+		Issueid = issueid;
+	}
+
+	public IssueType getIssueType() {
+		return issueType;
+	}
+
+	public void setIssueType(IssueType issueType) {
+		this.issueType = issueType;
+	}
+
+	public Employees getAssignee() {
+		return assignee;
+	}
+
+	public void setAssignee(Employees assignee) {
+		this.assignee = assignee;
+	}
+
+	public String getComments() {
+		return comments;
+	}
+
+	public void setComments(String comments) {
+		this.comments = comments;
+	}
+
+	public Tenants getReporter() {
+		return reporter;
+	}
+
+	public void setReporter(Tenants reporter) {
+		this.reporter = reporter;
+	}
+
+	public Room getRoomLocation() {
+		return roomLocation;
+	}
+
+	public void setRoomLocation(Room roomLocation) {
+		this.roomLocation = roomLocation;
+	}
+
+	public Building getBuildingLocation() {
+		return buildingLocation;
+	}
+
+	public void setBuildingLocation(Building buildingLocation) {
+		this.buildingLocation = buildingLocation;
+	}
+
+	public String getCreationDate() {
+		return creationDate;
+	}
+
+	public void setCreationDate(String creationDate) {
+		this.creationDate = creationDate;
+	}
 }

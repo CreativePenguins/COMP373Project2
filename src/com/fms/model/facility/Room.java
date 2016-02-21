@@ -9,7 +9,7 @@ public class Room {
 	private boolean vacant;
 	private ArrayList<Tenants> tenants = new ArrayList<Tenants>();
 	
-	public Room(){vacant = true;}
+	public Room(){}
 	
 	public String getRoomID() {
 		return RoomID;
@@ -26,8 +26,9 @@ public class Room {
 	public boolean isVacant() {
 		return vacant;
 	}
-	public void setVacant(boolean vacant) {
-		this.vacant = vacant;
+	public void setVacant() {
+		if (tenants.isEmpty()){this.vacant = true;}
+		else {this.vacant = false;}
 	}
 	public int getTenantNumber() {
 		return tenants.size();
