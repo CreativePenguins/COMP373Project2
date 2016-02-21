@@ -1,6 +1,5 @@
 package com.fms.model.users;
 import java.util.ArrayList;
-import java.util.List;
 import com.fms.model.maintenance.*; 
 
 public class Employees extends Users {

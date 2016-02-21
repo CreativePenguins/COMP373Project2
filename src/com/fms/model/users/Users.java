@@ -21,5 +21,9 @@ public class Users {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
+    public String toString(){
+    	String s = "[" + lastName + ", " + firstName + "]";
+    	return s;
+    }
     
 }

@@ -1,6 +1,7 @@
 package com.fms.model.facility;
 import java.util.ArrayList;
 import com.fms.model.maintenance.*;
+import com.fms.model.users.*;
 
 public class Building {
 	
@@ -48,6 +49,14 @@ public class Building {
 	public ArrayList<Room> getRooms(){
 		return rooms;
 	}
+	public String toString(){
+		String s = ("Building " + BuildingID + " at " + address.toString()); 
+		s = s + ("\nRooms:");
+		for (Room r: rooms){
+			s = s + (r.toString());
+		}
+		return s;
+	}
 	public void setRooms(String BID,int floors, int rooms){
 		for (int i = 1; i <=floors; i++){
 			for (int x = 0; x<rooms; x++){
@@ -56,6 +65,13 @@ public class Building {
 				temp.setRoomNo(roomno);
 				temp.setRoomID(BID + roomno);
 				this.rooms.add(temp);
+			}
+		}
+	}
+	public void addTenantToRoom(Tenants t, int roomNo){
+		for (Room r: rooms){
+			if (r.getRoomNo() == roomNo){
+				r.addTenant(t);
 			}
 		}
 	}

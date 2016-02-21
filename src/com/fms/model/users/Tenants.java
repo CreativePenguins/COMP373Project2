@@ -25,5 +25,12 @@ public class Tenants extends Users {
     public void setPrimary(boolean primary) {
         this.primary = primary;
     }
-
+    @Override
+    public String toString(){
+    	String s = super.toString();
+    	if (primary){
+    		s = s.replace("]", " : Primary Tenant]");
+    	}
+    	return s;
+    }
 }

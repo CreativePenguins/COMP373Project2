@@ -6,7 +6,7 @@ import com.fms.model.users.*;
 public class Room {
 	private String RoomID;
 	private int RoomNo;
-	private boolean vacant;
+	private boolean vacant = true;
 	private ArrayList<Tenants> tenants = new ArrayList<Tenants>();
 	
 	public Room(){}
@@ -34,6 +34,7 @@ public class Room {
 		return tenants.size();
 	}
 	public void addTenant(Tenants tenant) {
+		if (vacant){vacant = false;}
 		tenants.add(tenant);
 	}
 	public ArrayList<Tenants> getTenants(){
@@ -52,6 +53,20 @@ public class Room {
 			if (temp.getTenID() == ten.getTenID()){
 				tenants.remove(temp);
 			}
+		if (tenants.isEmpty()) {vacant = true;}
+		}
+	}
+	public String toString(){
+		String s = ("\n\t"+RoomNo +": ");
+		if (vacant) {
+			s = s + "VACANT";
+			return s;
+		}
+		else {
+			for (Tenants t: tenants){
+				s = s + t.toString();
+			}
+			return s;
 		}
 	}
 }
