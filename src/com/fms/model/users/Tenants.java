@@ -8,8 +8,6 @@ public class Tenants {
     private boolean primary;
     private String firstName;
     private String lastName;
-    private int roomID; // This is the reference to the room.
-
 
     // Accessors and Mutators
 
@@ -43,13 +41,5 @@ public class Tenants {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
-    }
-
-    public int getRoomID() {
-        return roomID;
-    }
-
-    public void setRoomID(int roomID) {
-        this.roomID = roomID;
     }
 }

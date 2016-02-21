@@ -46,4 +46,11 @@ public class Room {
 		}
 		return tenants.get(0);
 	}
+	public void removeTenant(Tenants ten){
+		for (Tenants temp: tenants){
+			if (temp.getTenID() == ten.getTenID()){
+				tenants.remove(temp);
+			}
+		}
+	}
 }
