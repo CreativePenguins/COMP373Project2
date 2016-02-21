@@ -22,6 +22,7 @@ public class Building {
 			}
 		}
 	}
+	public Building(){}
 	
 	public String getBuildingID() {
 		return BuildingID;
@@ -47,7 +48,15 @@ public class Building {
 	public ArrayList<Room> getRooms(){
 		return rooms;
 	}
-	public void addRoom(Room r){
-		rooms.add(r);
+	public void setRooms(String BID,int floors, int rooms){
+		for (int i = 1; i <=floors; i++){
+			for (int x = 0; x<rooms; x++){
+				Room temp = new Room();
+				int roomno = (i*100) + x;
+				temp.setRoomNo(roomno);
+				temp.setRoomID(BID + roomno);
+				this.rooms.add(temp);
+			}
+		}
 	}
 }
