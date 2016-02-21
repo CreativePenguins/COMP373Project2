@@ -3,43 +3,51 @@ package com.fms.model.maintenance;
 import java.util.Date;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import com.fms.model.users.*;
+import com.fms.model.facility.*;
 
 public class Issues {
 
     // Attributes
-    private String id;
-    private String issueType;
-    private String empID;
+    private String Issueid;
+    private IssueType issueType;
+    private Employees assignee;
     private String comments;
-    private String tenID;
-    private String rmID;
-    private String desc;
+    private Tenants reporter;
+    private Room roomLocation;
+    private Building buildingLocation;
     private String date;
 
-    // Accessors and Mutators
-
+    // Methods
+    public Issues(Tenants reporter, Room roomLocation, Building buildingLocation){
+    	this.reporter = reporter; 
+    	this.roomLocation = roomLocation;
+    	this.buildingLocation = buildingLocation;
+    	setDate();
+    }
+    
     public String getId() {
-        return id;
+        return Issueid;
     }
 
     public void setId(String id) {
-        this.id = id;
+        this.Issueid = id;
     }
 
-    public String getIssueType() {
+    public IssueType getIssueType() {
         return issueType;
     }
 
-    public void setIssueType(String issueType) {
+    public void setIssueType(IssueType issueType) {
         this.issueType = issueType;
     }
 
-    public String getEmpID() {
-        return empID;
+    public Employees getAssignee() {
+        return assignee;
     }
 
-    public void setEmpID(String empID) {
-        this.empID = empID;
+    public void setAssignee(Employees employee) {
+        this.assignee = employee;
     }
 
     public String getComments() {
@@ -50,31 +58,20 @@ public class Issues {
         this.comments = comments;
     }
 
-    public String getTenID() {
-        return tenID;
+    public Tenants getReporter() {
+        return this.reporter;
     }
 
-    public void setTenID(String tenID) {
-        this.tenID = tenID;
+    public Room getRoom() {
+        return this.roomLocation;
     }
 
-    public String getRmID() {
-        return rmID;
+    public Building getBuilding() {
+        return buildingLocation;
     }
 
-    public void setRmID(String rmID) {
-        this.rmID = rmID;
-    }
-
-    public String getDesc() {
-        return desc;
-    }
-
-    public void setDesc(String desc) {
-        this.desc = desc;
-    }
-
-    public boolean setDate() {
+    //we only want to use this method upon creation of the issue
+    private boolean setDate() {
             DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
             //get current date time with Date()
             Date d = new Date();
@@ -85,5 +82,4 @@ public class Issues {
     public String getDate() {
         return date;
     }
-
 }

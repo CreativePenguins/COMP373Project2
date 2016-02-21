@@ -1,13 +1,11 @@
 package com.fms.model.users;
 
 
-public class Tenants {
+public class Tenants extends Users {
 
     // Attributes
     private String tenID; // Primary key
     private boolean primary;
-    private String firstName;
-    private String lastName;
 
     // Accessors and Mutators
 
@@ -27,19 +25,4 @@ public class Tenants {
         this.primary = primary;
     }
 
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
 }

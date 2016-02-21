@@ -3,14 +3,12 @@ import java.util.ArrayList;
 import java.util.List;
 import com.fms.model.maintenance.*; 
 
-public class Employees {
+public class Employees extends Users {
 
     // Attributes
     private String ID;
     private int maxIssues = 10;
     private ArrayList<IssueType> specialities = new ArrayList<IssueType>();
-    private String firstName;
-    private String lastName;
 
     public Employees(){}
     
@@ -39,19 +37,4 @@ public class Employees {
         this.issueTypesID = issueTypesID;
     }
 
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
 }
