@@ -103,7 +103,7 @@ public class Issues {
 	}
 
 	public String toString(){
-		String s = ("Issue Type: " + issueType.getDescription() + "\nBuilding No. " + buildingLocation.getBuildingID() +
+		String s = ("Date Created: " + creationDate + "\nIssue Type: " + issueType.getDescription() + "\nBuilding No. " + buildingLocation.getBuildingID() +
 				"\nRoom No. " + roomLocation + "" + "\nEmployee Assigned: " + assignee + "\nComments: " + comments + "\n");
 		return s;
 	}
