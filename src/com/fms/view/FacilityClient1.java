@@ -14,7 +14,7 @@ public class FacilityClient1 {
 
 		// TODO create issue types
 		// TODO create employees - Set ID
-		// TODO Add specialties to empoloyee
+		// TODO Add specialties to employee
 		// TODO create issue
 
 	//instantiating objects and using methods in Facility 
