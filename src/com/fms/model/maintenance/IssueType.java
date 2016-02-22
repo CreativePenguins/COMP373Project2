@@ -11,8 +11,9 @@ public class IssueType {
     public IssueType(){}
 
     // Filled
-    public IssueType(String description) {
+    public IssueType(String description, String id) {
         this.description = description;
+        this.id = id;
     }
 
     // Accessor and mutators

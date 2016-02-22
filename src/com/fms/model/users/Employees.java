@@ -12,9 +12,10 @@ public class Employees extends Users {
     // Constructor
     public Employees(){}
 
-    public Employees(String first, String last) {
+    public Employees(String first, String last, String id) {
         setFirstName(first);
         setLastName(last);
+        setID(id);
     }
     
     // Accessors and mutators
