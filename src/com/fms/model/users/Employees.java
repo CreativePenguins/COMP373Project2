@@ -9,7 +9,13 @@ public class Employees extends Users {
     private int maxIssues = 10;
     private ArrayList<IssueType> specialities = new ArrayList<IssueType>();
 
+    // Constructor
     public Employees(){}
+
+    public Employees(String first, String last) {
+        setFirstName(first);
+        setLastName(last);
+    }
     
     // Accessors and mutators
     public String getID() {
