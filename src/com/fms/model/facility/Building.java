@@ -68,6 +68,9 @@ public class Building {
 			}
 		}
 	}
+	public Room getRoom(int i) {
+		return rooms.get(i);
+	}
 	public void addTenantToRoom(Tenants t, int roomNo){
 		for (Room r: rooms){
 			if (r.getRoomNo() == roomNo){
