@@ -11,6 +11,12 @@ import com.fms.model.users.*;
  */
 public class FacilityClient1 {
 	public static void main (String args[]) throws Exception {
+
+		// TODO create issue types
+		// TODO create employees - Set ID
+		// TODO Add specialties to empoloyee
+		// TODO create issue
+
 	//instantiating objects and using methods in Facility 
 	Address testAddress = new Address ();
 	testAddress.setAddressID("1");
