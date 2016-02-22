@@ -101,4 +101,10 @@ public class Issues {
 	public void setCreationDate(String creationDate) {
 		this.creationDate = creationDate;
 	}
+
+	public String toString(){
+		String s = ("Issue Type: " + issueType.getDescription() + "\nBuilding No. " + buildingLocation.getBuildingID() +
+				"\nRoom No. " + roomLocation + "" + "\nEmployee Assigned: " + assignee + "\nComments: " + comments + "\n");
+		return s;
+	}
 }
