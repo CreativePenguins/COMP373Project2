@@ -25,7 +25,9 @@ public class Issues {
     	this.buildingLocation = buildingLocation;
     	setDate();
     }
-    public Issues(){}
+    public Issues(){
+		setDate();
+	}
     
     //we only want to use this method upon creation of the issue
     private boolean setDate() {
