@@ -27,8 +27,7 @@ public class Room {
 		return vacant;
 	}
 	public void setVacant() {
-		if (tenants.isEmpty()){this.vacant = true;}
-		else {this.vacant = false;}
+		this.vacant = tenants.isEmpty();
 	}
 	public int getTenantNumber() {
 		return tenants.size();

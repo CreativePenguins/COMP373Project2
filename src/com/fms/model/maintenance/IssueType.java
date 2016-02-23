@@ -6,9 +6,17 @@ public class IssueType {
     private String id;
     private String description;
 
-    // Accessor and Mutators
+    // Constructors
+    // Empty
     public IssueType(){}
-    
+
+    // Filled
+    public IssueType(String description, String id) {
+        this.description = description;
+        this.id = id;
+    }
+
+    // Accessor and mutators
     public String getId() {
         return id;
     }
