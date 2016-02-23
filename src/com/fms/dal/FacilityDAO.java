@@ -24,7 +24,4 @@ public class FacilityDAO {
 		Room r = new Room();
 		return r;
 	}
-	
-	public void addRoom(Room room){
-	}
 }
