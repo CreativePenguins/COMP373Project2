@@ -15,9 +15,18 @@ public class FacilityDAO {
 	public FacilityDAO(){}
 	
 	public Building getBuilding(String buildingID) throws SQLException, URISyntaxException{
-		Building b = new Building();
-    	Statement st = DBHelper.getConnection().createStatement();
-		return b;
+		Statement st = DBHelper.getConnection().createStatement();
+		String selectBuildingQuery = "SELECT BuildingID,AddressID, IssueCount FROM Building WHERE BuildingID = '" + buildingID + "'";
+    	
+		ResultSet builRS = st.executeQuery(selectBuildingQuery);
+		System.out.println("FacilityDAO: ***************** Query " + selectBuildingQuery);
+		
+		//Get Building 
+		Building building = new Building();
+		while (builRS.next() ){
+			building.setBuildingID(builRS.getString("BuildingID"));
+		}
+		return building;
 	}
 	
 	public void addBuilding (Building building) throws URISyntaxException, SQLException{
@@ -25,9 +34,25 @@ public class FacilityDAO {
 	}
 	
 	public Address getAddress(String addressID) throws SQLException, URISyntaxException{
-		Address a = new Address();
     	Statement st = DBHelper.getConnection().createStatement();
-		return a;
+    	String selectAddressQuery = "SELECT AddressID, AddressNo, Street, City, State, Zip FROM Address WHERE AddressID ='" + addressID + "'";
+    	
+    	ResultSet addRS = st.executeQuery(selectAddressQuery);
+    	System.out.println("AddressDAO: *********** Query " + selectAddressQuery);
+    	
+    	//Get Address 
+    	Address address = new Address();
+    	while (addRS.next()){
+    		address.setAddressID(addRS.getString("AddressID"));
+    		address.setAddressNumber(addRS.getInt("AddressNo"));
+    		address.setStreet(addRS.getString("Street"));
+    		address.setCity(addRS.getString("City"));
+    		address.setState(addRS.getString("State"));
+    		address.setZip(addRS.getInt("Zip"));
+    	}
+    	//Close addRS 
+    	addRS.close();
+    	return address;
 	}
 	
 	public void addAddress(Address address) throws URISyntaxException, SQLException{
