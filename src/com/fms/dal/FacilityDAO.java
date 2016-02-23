@@ -2,7 +2,6 @@ package com.fms.dal;
 import java.sql.Statement;
 
 import com.fms.model.facility.*;
-import com.ebook.dal.DBHelper;
 import com.fms.dal.*;
 
 import java.net.URISyntaxException;
@@ -21,21 +20,21 @@ public class FacilityDAO {
 		return b;
 	}
 	
-	public void addBuilding (Building building){
+	public void addBuilding (Building building) throws URISyntaxException, SQLException{
 		Connection con = DBHelper.getConnection();
 	}
 	
-	public Address getAddress(String addressID){
+	public Address getAddress(String addressID) throws SQLException, URISyntaxException{
 		Address a = new Address();
     	Statement st = DBHelper.getConnection().createStatement();
 		return a;
 	}
 	
-	public void addAddress(Address address){
+	public void addAddress(Address address) throws URISyntaxException, SQLException{
 		Connection con = DBHelper.getConnection();
 	}
 	
-	public Room getRoom(String RoomID){
+	public Room getRoom(String RoomID) throws SQLException, URISyntaxException{
     	Statement st = DBHelper.getConnection().createStatement();
 		Room r = new Room();
 		return r;
