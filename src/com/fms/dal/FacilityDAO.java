@@ -18,14 +18,14 @@ public class FacilityDAO {
 		Statement st = DBHelper.getConnection().createStatement();
 		String selectBuildingQuery = "SELECT BuildingID,AddressID, IssueCount FROM Building WHERE BuildingID = '" + buildingID + "'";
     	
-		ResultSet builRS = st.executeQuery(selectBuildingQuery);
+		/**ResultSet builRS = st.executeQuery(selectBuildingQuery);**/
 		System.out.println("FacilityDAO: ***************** Query " + selectBuildingQuery);
 		
 		//Get Building 
 		Building building = new Building();
-		while (builRS.next() ){
+		/**while (builRS.next() ){
 			building.setBuildingID(builRS.getString("BuildingID"));
-		}
+		}**/
 		return building;
 	}
 	

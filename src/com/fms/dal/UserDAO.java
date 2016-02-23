@@ -1,7 +1,5 @@
 package com.fms.dal;
 import com.fms.model.users.*;
-import com.sun.corba.se.impl.orb.PrefixParserData;
-import com.sun.corba.se.spi.orbutil.fsm.Guard;
 
 import java.net.URISyntaxException;
 import java.sql.Connection;
@@ -18,7 +16,7 @@ public class UserDAO {
 
 		try {
 			Statement st = DBHelper.getConnection().createStatement();
-			String selectTenantQuery = "SELECT TenantID, LastName, FirstName, Primary FROM Tenant WHERE TenantID = '" + tenantID + "'";
+			String selectTenantQuery = "SELECT TenantID, Primary, FirstName, LastName, RoomID FROM Tenants WHERE TenantID = '" + tenantID + "'";
 
 			ResultSet tenRS = st.executeQuery(selectTenantQuery);
 			System.out.println("TenantDAO: ------- Query " + selectTenantQuery);
@@ -28,7 +26,7 @@ public class UserDAO {
 				tenant.setTenID(tenRS.getString("TenantID"));
 				tenant.setLastName(tenRS.getString("LastName"));
 				tenant.setFirstName(tenRS.getString("FirstName"));
-				tenant.setPrimary(tenRS.getBoolean("Primary"));
+				//tenant.setPrimary(tenRS.getBoolean("Primary"));
 			} tenRS.close();
 			st.close();
 			return tenant;
@@ -45,14 +43,14 @@ public class UserDAO {
 		PreparedStatement addPst = null;
 
 		try {
-			String tenStm = "INSERT INTO Tenant(TenantID, LastName, FirstName, Primary) VALUES(?, ?, ?, ?)";
+			String tenStm = "INSERT INTO Tenants(TenantID, LastName, FirstName) VALUES(?, ?, ?)";
 			tenPst = con.prepareStatement(tenStm);
 			tenPst.setString(1, tenant.getTenID());
 			tenPst.setString(2, tenant.getLastName());
 			tenPst.setString(3, tenant.getFirstName());
-			tenPst.setBoolean(4, tenant.isPrimary());
+			//tenPst.setBoolean(4, tenant.isPrimary());
 			tenPst.executeUpdate();
-		} catch (SQLException ex) {}
+		} catch (SQLException ex) {System.out.println(ex.getMessage());}
 		finally {
 			try {
 				if (tenPst != null)
@@ -66,8 +64,10 @@ public class UserDAO {
 		}
 	}
 	
-	/*public Employees getEmployee(String employeeID) {
-	}*/
+	public Employees getEmployee(String employeeID) {
+		Employees e = new Employees();
+		return e;
+	}
 
 	public void addEmployee(Employees employee){
 	}
