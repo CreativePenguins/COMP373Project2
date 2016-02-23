@@ -3,12 +3,6 @@ package com.fms.view;
 import com.fms.model.facility.*;
 import com.fms.model.maintenance.*;
 import com.fms.model.users.*;
-import com.fms.dal.*;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import com.fms.model.service.*;
 /**
  * This class will employ the object classes and their methods
@@ -74,8 +68,9 @@ public class FacilityClient1 {
 	FacilityService facServ = new FacilityService();
 	facServ.addAddress(testAddress);
 	facServ.addBuilding(testBuilding);
-	System.out.println("\n ------------------Retrieving Objects by ID------------------");
+	System.out.println("\n ------------------Retrieving Building, Address, and Rooms by ID------------------");
 	Address newAddress = facServ.findAddressById("1");
+	System.out.println("Retrieved Address: " + newAddress.toString());
 	Building newBuilding = facServ.findBuildingById("1");
 	Room newRoom = facServ.findRoomById("1100");
 	
