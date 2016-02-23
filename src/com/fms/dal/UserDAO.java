@@ -1,5 +1,6 @@
 package com.fms.dal;
 import com.fms.model.users.*;
+import com.sun.corba.se.impl.orb.PrefixParserData;
 import com.sun.corba.se.spi.orbutil.fsm.Guard;
 
 import java.net.URISyntaxException;
@@ -17,7 +18,7 @@ public class UserDAO {
 
 		try {
 			Statement st = DBHelper.getConnection().createStatement();
-			String selectTenantQuery = "SELECT tenantID, lname, fname FROM Tenant WHERE tenantID = '" + tenantID + "'";
+			String selectTenantQuery = "SELECT TenantID, LastName, FirstName, Primary FROM Tenant WHERE TenantID = '" + tenantID + "'";
 
 			ResultSet tenRS = st.executeQuery(selectTenantQuery);
 			System.out.println("TenantDAO: ------- Query " + selectTenantQuery);
@@ -38,11 +39,36 @@ public class UserDAO {
 		}return null;
 	}
 	
-	public void addTenant(Tenants tenant){
+	public void addTenant(Tenants tenant) throws URISyntaxException, SQLException {
+		Connection con = DBHelper.getConnection();
+		PreparedStatement tenPst = null;
+		PreparedStatement addPst = null;
+
+		try {
+			String tenStm = "INSERT INTO Tenant(TenantID, LastName, FirstName, Primary) VALUES(?, ?, ?, ?)";
+			tenPst = con.prepareStatement(tenStm);
+			tenPst.setString(1, tenant.getTenID());
+			tenPst.setString(2, tenant.getLastName());
+			tenPst.setString(3, tenant.getFirstName());
+			tenPst.setBoolean(4, tenant.isPrimary());
+			tenPst.executeUpdate();
+		} catch (SQLException ex) {}
+		finally {
+			try {
+				if (tenPst != null)
+					tenPst.close();
+				if (con != null)
+					con.close();
+			} catch (SQLException ex) {
+				System.err.println("TenantDAO: Threw a SQLException adding data...");
+				System.err.println(ex.getMessage());
+			}
+		}
 	}
 	
-	public Employees getEmployee(String employeeID) throws URISyntaxException {
-	}
+	/*public Employees getEmployee(String employeeID) {
+	}*/
+
 	public void addEmployee(Employees employee){
 	}
 	
