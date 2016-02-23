@@ -107,9 +107,9 @@ public class UserDAO {
 			empPst.setString(6, employee.getLastName());
 			if(employee.getSpecialtyNum(0) != null)
 				empPst.setString(2, employee.getSpecialtyNum(0).getId());
-			if(employee.getSpecialtyNum(1) != null)
+			if(employee.getSpecialtySize() > 1)
 				empPst.setString(3, employee.getSpecialtyNum(1).getId());
-			if(employee.getSpecialtyNum(2) != null)
+			if(employee.getSpecialtySize() > 2)
 				empPst.setString(4, employee.getSpecialtyNum(2).getId());
 			empPst.executeUpdate();
 		} catch (SQLException ex) { System.err.println(ex.getMessage()); }
