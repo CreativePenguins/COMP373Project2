@@ -1,6 +1,7 @@
 package com.fms.dal;
 import java.net.URISyntaxException;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -21,9 +22,25 @@ public class MaintenanceDAO {
 	}
 	//this method will retrieve and IssueType by the ID entered
 	public IssueType getIssueType(String issueTypeID) throws SQLException, URISyntaxException{
-    	Statement st = DBHelper.getConnection().createStatement();
-		IssueType i = new IssueType();
-		return i;
+    	try {
+			Statement st = DBHelper.getConnection().createStatement();
+			String selectIssTypeQuery = "SELECT typeid, description FROM issuetypes WHERE typeid = '" + issueTypeID + "'";
+
+			ResultSet istRS = st.executeQuery(selectIssTypeQuery);
+			System.out.println("IssTypeDAO: **************** Query " + selectIssTypeQuery);
+
+			IssueType issueType = new IssueType();
+			while (istRS.next()) {
+				issueType.setId(istRS.getString("typeid"));
+				issueType.setDescription(istRS.getString("description"));
+			}
+			istRS.close();
+			st.close();
+			return issueType;
+		} catch (SQLException se) {
+			System.err.println("IssueTypeDAO: Threw SQLException retrieving the issue type object.");
+			System.err.println(se.getMessage());
+		} return null;
 	}
 	//this method passes a newly created IssueType and adds a record to the database for it 
 	public void addIssueType(IssueType issuetype) throws URISyntaxException, SQLException{
