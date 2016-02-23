@@ -8,7 +8,7 @@ public class Tenants extends Users {
     private boolean primary;
 
     // Accessors and Mutators
-    public Tenants(){}
+    public Tenants(){primary = false;}
     
     public String getTenID() {
         return tenID;
@@ -18,11 +18,8 @@ public class Tenants extends Users {
         this.tenID = tenID;
     }
 
-    public char isPrimary() {
-        if(primary == true)
-            return 't';
-        else
-            return 'f';
+    public boolean isPrimary() {
+        return primary;
     }
 
     public void setPrimary(boolean primary) {

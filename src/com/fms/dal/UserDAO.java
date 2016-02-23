@@ -42,8 +42,9 @@ public class UserDAO {
 		PreparedStatement tenPst = null;
 
 		try {
-			String tenStm = "INSERT INTO Tenants(TenantID, Primary, FirstName, LastName) VALUES(?, ?, ?, ?)";
+			String tenStm = "INSERT INTO Tenants(TenantID, 'Primary', FirstName, LastName) VALUES(?, ?, ?, ?)";
 			System.out.println(tenPst);
+			tenPst = con.prepareStatement(tenStm);
 			tenPst.setString(1, tenant.getTenID());
 			tenPst.setBoolean(2, tenant.isPrimary());
 			tenPst.setString(3, tenant.getFirstName());
