@@ -1,9 +1,6 @@
 package com.fms.dal;
 import java.net.URISyntaxException;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 import com.fms.model.maintenance.*;
 
@@ -45,5 +42,25 @@ public class MaintenanceDAO {
 	//this method passes a newly created IssueType and adds a record to the database for it 
 	public void addIssueType(IssueType issuetype) throws URISyntaxException, SQLException{
 		Connection con = DBHelper.getConnection();
+		PreparedStatement istyPst = null;
+
+		try {
+			String istyStm = "INSERT INTO issuetypes(typeid, description) VALUES(?,?)";
+			istyPst = con.prepareStatement(istyStm);
+			istyPst.setString(1, issuetype.getId());
+			istyPst.setString(2, issuetype.getDescription());
+			istyPst.executeUpdate();
+		} catch (SQLException ex) {}
+		finally {
+			try{
+				if (istyPst != null)
+					istyPst.close();
+				if (con != null)
+					con.close();
+			} catch (SQLException ex) {
+				System.err.println("IsTyDAO: Threw a SQLExecp saving object");
+				System.err.println(ex.getMessage());
+			}
+		}
 	}
 }
