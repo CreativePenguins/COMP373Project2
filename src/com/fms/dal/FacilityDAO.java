@@ -19,7 +19,6 @@ public class FacilityDAO {
 		String selectBuildingQuery = "SELECT BuildingID,AddressID, IssueCount FROM Building WHERE BuildingID = '" + buildingID + "'";
     	
 		/**ResultSet builRS = st.executeQuery(selectBuildingQuery);**/
-		System.out.println("FacilityDAO: ***************** Query " + selectBuildingQuery);
 		
 		//Get Building 
 		Building building = new Building();
@@ -38,7 +37,6 @@ public class FacilityDAO {
     	String selectAddressQuery = "SELECT AddressID, AddressNo, Street, City, State, Zip FROM Address WHERE AddressID ='" + addressID + "'";
     	
     	ResultSet addRS = st.executeQuery(selectAddressQuery);
-    	System.out.println("AddressDAO: *********** Query " + selectAddressQuery);
     	
     	//Get Address 
     	Address address = new Address();
@@ -83,6 +81,7 @@ public class FacilityDAO {
 				System.err.println("FacilityDAO: Threw a SQLException saving the customer object.");
 			}
 		}
+		System.out.println("FacilityDAO: addAddress ran successfully");
 	}
 	
 	public Room getRoom(String RoomID) throws SQLException, URISyntaxException{
