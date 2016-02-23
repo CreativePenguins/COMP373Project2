@@ -58,9 +58,6 @@ public class FacilityClient1 {
 	testBuilding.addTenantToRoom(t1, 201);
 	testBuilding.addTenantToRoom(t2, 201);
 	System.out.println(testBuilding.toString());
-<<<<<<< HEAD
-	Statement st = DBHelper.getConnection().createStatement();
-=======
 		System.out.println();
 
 		// Create issue
@@ -72,9 +69,6 @@ public class FacilityClient1 {
 		ione.setComments("The sink in 201 has a leaky faucet.");
 		ione.setBuildingLocation(testBuilding);
 		System.out.println(ione.toString());
-
-
->>>>>>> 14eeb960ba4b53086327d7d33a3d5fabfd875eca
 
 	//instantiating objects and using methods in Maintenance
 	}
