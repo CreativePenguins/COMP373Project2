@@ -35,6 +35,10 @@ public class Employees extends Users {
         return specialities;
     }
 
+    public IssueType getSpecialtyNum(int i) {
+        return specialities.get(i);
+    }
+
     public void addSpecialty(IssueType issueType) {
         specialities.add(issueType);
     }

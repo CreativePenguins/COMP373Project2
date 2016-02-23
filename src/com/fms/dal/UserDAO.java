@@ -1,5 +1,7 @@
 package com.fms.dal;
+import com.fms.model.maintenance.IssueType;
 import com.fms.model.users.*;
+import com.fms.dal.MaintenanceDAO;
 
 import java.net.URISyntaxException;
 import java.sql.Connection;
@@ -9,8 +11,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class UserDAO {
-
-	//TODO Make Statement
 
 	public Tenants getTenant(String tenantID) throws URISyntaxException {
 
@@ -62,12 +62,69 @@ public class UserDAO {
 		}
 	}
 	
-	public Employees getEmployee(String employeeID) {
-		Employees e = new Employees();
-		return e;
+	public Employees getEmployee(String employeeID) throws URISyntaxException {
+		MaintenanceDAO mdao = new MaintenanceDAO();
+		try {
+			Statement st = DBHelper.getConnection().createStatement();
+			String selectEmployeeQuery = "SELECT employeeid, specialty1, specialty2, specialty3, firstname, lastname FROM Employees Where employeeid = '" + employeeID + "'";
+
+			ResultSet empRS = st.executeQuery(selectEmployeeQuery);
+			System.out.println("EmployeeDAO: *************** Query " + selectEmployeeQuery);
+
+			Employees employees = new Employees();
+
+
+			while (empRS.next()) {
+				employees.setID(empRS.getString("employeeid"));
+				employees.setFirstName(empRS.getString("firstname"));
+				employees.setLastName(empRS.getString("lastname"));
+				if(!(mdao.getIssueType(empRS.getString("specialty1")) ==null))
+					employees.addSpecialty(mdao.getIssueType(empRS.getString("specialty1")));
+				if(!(mdao.getIssueType(empRS.getString("specialty2")) ==null))
+					employees.addSpecialty(mdao.getIssueType(empRS.getString("specialty2")));
+				if(!(mdao.getIssueType(empRS.getString("specialty3")) ==null))
+					employees.addSpecialty(mdao.getIssueType(empRS.getString("specialty3")));
+			} empRS.close();
+			st.close();
+			return employees;
+		} catch (SQLException se) {
+			System.err.println("EmpDAO: Threw SQLExcep getting emp obj.");
+			System.err.println(se.getMessage());
+			se.printStackTrace();
+		}
+		return null;
 	}
 
-	public void addEmployee(Employees employee){
+	public void addEmployee(Employees employee) throws URISyntaxException, SQLException {
+		Connection con = DBHelper.getConnection();
+		PreparedStatement empPst = null;
+
+		try {
+			String empStm = "INSERT INTO Employees(employeeid, specialty1, specialty2, specialty3, firstname, lastname) VALUES (?, ?, ?, ?, ?, ?)";
+			empPst = con.prepareStatement(empStm);
+			empPst.setString(1, employee.getID());
+			empPst.setString(5, employee.getFirstName());
+			empPst.setString(6, employee.getLastName());
+			if(employee.getSpecialtyNum(0) != null)
+				empPst.setString(2, employee.getSpecialtyNum(0).getId());
+			if(employee.getSpecialtyNum(1) != null)
+				empPst.setString(3, employee.getSpecialtyNum(1).getId());
+			if(employee.getSpecialtyNum(2) != null)
+				empPst.setString(4, employee.getSpecialtyNum(2).getId());
+			empPst.executeUpdate();
+		} catch (SQLException ex) { System.err.println(ex.getMessage()); }
+		finally {
+			try {
+				if(empPst != null)
+					empPst.close();
+				if(con != null)
+					con.close();
+			} catch (SQLException ex) {
+				System.err.println("EmpDAO: SQLExcep adding...");
+				System.err.println(ex.getMessage());
+			}
+		}
 	}
-	
 }
+	
+
