@@ -16,7 +16,7 @@ public class UserDAO {
 
 		try {
 			Statement st = DBHelper.getConnection().createStatement();
-			String selectTenantQuery = "SELECT TenantID, Primary, FirstName, LastName, RoomID FROM Tenants WHERE TenantID = '" + tenantID + "'";
+			String selectTenantQuery = "SELECT TenantID, Primary, FirstName, LastName FROM Tenants WHERE TenantID = '" + tenantID + "'";
 
 			ResultSet tenRS = st.executeQuery(selectTenantQuery);
 			System.out.println("TenantDAO: ------- Query " + selectTenantQuery);
@@ -26,7 +26,7 @@ public class UserDAO {
 				tenant.setTenID(tenRS.getString("TenantID"));
 				tenant.setLastName(tenRS.getString("LastName"));
 				tenant.setFirstName(tenRS.getString("FirstName"));
-				//tenant.setPrimary(tenRS.getBoolean("Primary"));
+				tenant.setPrimary(tenRS.getBoolean("Primary"));
 			} tenRS.close();
 			st.close();
 			return tenant;
@@ -40,7 +40,6 @@ public class UserDAO {
 	public void addTenant(Tenants tenant) throws URISyntaxException, SQLException {
 		Connection con = DBHelper.getConnection();
 		PreparedStatement tenPst = null;
-		PreparedStatement addPst = null;
 
 		try {
 			String tenStm = "INSERT INTO Tenants(TenantID, LastName, FirstName) VALUES(?, ?, ?)";
@@ -48,7 +47,7 @@ public class UserDAO {
 			tenPst.setString(1, tenant.getTenID());
 			tenPst.setString(2, tenant.getLastName());
 			tenPst.setString(3, tenant.getFirstName());
-			//tenPst.setBoolean(4, tenant.isPrimary());
+			tenPst.setBoolean(4, tenant.isPrimary());
 			tenPst.executeUpdate();
 		} catch (SQLException ex) {System.out.println(ex.getMessage());}
 		finally {
