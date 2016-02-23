@@ -16,7 +16,7 @@ public class UserDAO {
 
 		try {
 			Statement st = DBHelper.getConnection().createStatement();
-			String selectTenantQuery = "SELECT TenantID, Primary, FirstName, LastName FROM Tenants WHERE TenantID = '" + tenantID + "'";
+			String selectTenantQuery = "SELECT TenantID, Primary, FirstName, LastName, RoomID FROM Tenants WHERE TenantID = '" + tenantID + "'";
 
 			ResultSet tenRS = st.executeQuery(selectTenantQuery);
 			System.out.println("TenantDAO: ------- Query " + selectTenantQuery);
@@ -42,12 +42,12 @@ public class UserDAO {
 		PreparedStatement tenPst = null;
 
 		try {
-			String tenStm = "INSERT INTO Tenants(TenantID, LastName, FirstName, Primary) VALUES(?, ?, ?, ?)";
+			String tenStm = "INSERT INTO Tenants(TenantID, Primary, FirstName, LastName) VALUES(?, ?, ?, ?)";
 			System.out.println(tenPst);
 			tenPst.setString(1, tenant.getTenID());
-			tenPst.setString(2, tenant.getLastName());
+			tenPst.setBoolean(2, tenant.isPrimary());
 			tenPst.setString(3, tenant.getFirstName());
-			tenPst.setBoolean(4, tenant.isPrimary());
+			tenPst.setString(4, tenant.getLastName());
 			tenPst.executeUpdate();
 		} catch (SQLException ex) {System.out.println(ex.getMessage());}
 		finally {
