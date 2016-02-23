@@ -18,8 +18,11 @@ public class Tenants extends Users {
         this.tenID = tenID;
     }
 
-    public boolean isPrimary() {
-        return primary;
+    public char isPrimary() {
+        if(primary == true)
+            return 't';
+        else
+            return 'f';
     }
 
     public void setPrimary(boolean primary) {
