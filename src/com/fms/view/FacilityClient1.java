@@ -94,6 +94,5 @@ public class FacilityClient1 {
 	System.out.println("\n-------------Retrieving Issues and IssueTypes by ID----------");
 	maintServ.findIssueById("1");
 	maintServ.FindIssueTypeByID("3");
-	
 	}
 }

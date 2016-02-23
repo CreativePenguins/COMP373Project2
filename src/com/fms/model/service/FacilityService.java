@@ -62,16 +62,5 @@ public class FacilityService {
 		      System.err.println(se.getMessage());
 		    }
 			return null;
-		}
-		
-		//Insert a new room in the DB
-		public void addRoom(Room r) {
-			
-			try {
-				facDAO.addRoom(r);
-		    } catch (Exception se) {
-		      System.err.println("FacilityService: Threw a Exception adding Room.");
-		      System.err.println(se.getMessage());
-		    }
-		}
+		}		
 }
