@@ -45,12 +45,12 @@ public class MaintenanceDAO {
 		PreparedStatement istyPst = null;
 
 		try {
-			String istyStm = "INSERT INTO issuetypes(typeid, description) VALUES(?,?)";
+			String istyStm = "INSERT INTO issuetypes(typeid, description) VALUES(?, ?)";
 			istyPst = con.prepareStatement(istyStm);
 			istyPst.setString(1, issuetype.getId());
 			istyPst.setString(2, issuetype.getDescription());
 			istyPst.executeUpdate();
-		} catch (SQLException ex) {}
+		} catch (SQLException ex) {System.out.println(ex);}
 		finally {
 			try{
 				if (istyPst != null)

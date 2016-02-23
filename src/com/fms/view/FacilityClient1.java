@@ -66,7 +66,6 @@ public class FacilityClient1 {
 	
 	System.out.println("\n-------------Adding Building, Address, and Rooms to Database------------");
 	FacilityService facServ = new FacilityService();
-	facServ.addAddress(testAddress);
 	facServ.addBuilding(testBuilding);
 	System.out.println("\n ------------------Retrieving Building, Address, and Rooms by ID------------------");
 	Address newAddress = facServ.findAddressById("1");
@@ -88,6 +87,7 @@ public class FacilityClient1 {
 	maintServ.addIssueType(carp);
 	System.out.println("\n-------------Retrieving Issues and IssueTypes by ID----------");
 	maintServ.findIssueById("1");
-	maintServ.FindIssueTypeByID("3");
+	IssueType itest = maintServ.FindIssueTypeByID("3");
+	System.out.println("Received IssueType: " + itest.getDescription() + " with id " + itest.getId());
 	}
 }
