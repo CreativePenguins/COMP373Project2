@@ -65,7 +65,7 @@ public class FacilityClient1 {
 		ione.setIssueid("1");
 		ione.setIssueType(plumb);
 		ione.setAssignee(one);
-		ione.setRoomLocation(testBuilding.getRoom(3));
+		ione.setRoomLocation(testBuilding.getRoom(201));
 		ione.setComments("The sink in 201 has a leaky faucet.");
 		ione.setBuildingLocation(testBuilding);
 		System.out.println(ione.toString());

@@ -69,7 +69,11 @@ public class Building {
 		}
 	}
 	public Room getRoom(int i) {
-		return rooms.get(i);
+		for(Room r: rooms){
+			if (r.getRoomNo() == i)
+				return r;
+		} System.out.println("NO MATCH");
+		return rooms.get(0);
 	}
 	public void addTenantToRoom(Tenants t, int roomNo){
 		for (Room r: rooms){
