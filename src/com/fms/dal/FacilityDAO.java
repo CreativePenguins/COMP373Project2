@@ -57,6 +57,32 @@ public class FacilityDAO {
 	
 	public void addAddress(Address address) throws URISyntaxException, SQLException{
 		Connection con = DBHelper.getConnection();
+		PreparedStatement addPst = null;
+		
+		try{
+		String addStm = "INSERT INTO Address(addressid, addressno, street, city, state, zip) VALUES(?, ?, ?, ?, ?, ?)";
+		addPst = con.prepareStatement(addStm);
+		addPst.setString(1,  address.getAddressID());
+		addPst.setInt(2, address.getAddressNumber());
+		addPst.setString(3, address.getStreet());
+		addPst.setString(4, address.getCity());
+		addPst.setString(5, address.getState());
+		addPst.setInt(6, address.getZip());
+		addPst.executeUpdate();
+		} catch (SQLException ex) { System.out.println(ex);
+			
+		} finally {
+			try{
+				if (addPst !=null){
+					addPst.close();	
+				}
+				if (con!=null){
+					con.close();
+				}
+			} catch (SQLException ex) {
+				System.err.println("FacilityDAO: Threw a SQLException saving the customer object.");
+			}
+		}
 	}
 	
 	public Room getRoom(String RoomID) throws SQLException, URISyntaxException{
