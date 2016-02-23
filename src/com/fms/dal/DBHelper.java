@@ -11,7 +11,6 @@ public class DBHelper {
 	
 	public static Connection getConnection() throws URISyntaxException, SQLException {
 		URI dbUri = new URI(("postgres://nxuofibqoygxqn:WQSlQYEoizmu2wlrSD-ncVCzZG@ec2-54-83-198-111.compute-1.amazonaws.com:5432/d73f7ijqb8stbu"));
-		System.out.println("HERE");
 
 		String username = dbUri.getUserInfo().split(":")[0];
 		String password = dbUri.getUserInfo().split(":")[1];
