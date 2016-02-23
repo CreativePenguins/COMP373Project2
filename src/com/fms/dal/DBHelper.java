@@ -1,50 +1,23 @@
 package com.fms.dal;
 
-import java.sql.DriverManager;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.sql.*;
 
+/**
+ * Helper class for connecting to AWS MySQL DB.
+ */
 public class DBHelper {
+	
+	public static Connection getConnection() throws URISyntaxException, SQLException {
+		URI dbUri = new URI(("postgres://nxuofibqoygxqn:WQSlQYEoizmu2wlrSD-ncVCzZG@ec2-54-83-198-111.compute-1.amazonaws.com:5432/d73f7ijqb8stbu"));
+		System.out.println("HERE");
 
-	public static Connection getConnection() {
-		 
-		System.out.println("DBHelper: -------- PostgreSQL " + "JDBC Connection  ------------");
- 
-		try {	
-			System.out.println(Class.forName("org.postgresql.Driver"));
-		} catch (ClassNotFoundException e) {
-			System.out.println("DBHelper: Check Where  your PostgreSQL JDBC Driver exist and " + "Include in your library path!");
-			e.printStackTrace();
-			return null;
-		}
- 
-		System.out.println("DBHelper: PostgreSQL JDBC Driver Registered!");
- 
-		Connection connection = null;
- 
-		try {
+		String username = dbUri.getUserInfo().split(":")[0];
+		String password = dbUri.getUserInfo().split(":")[1];
+		String dbUrl = "jdbc:postgresql://"+ dbUri.getHost()+ ":" + dbUri.getPort() + dbUri.getPath() + "?sslmode=require";
 
-			connection = DriverManager.getConnection("jdbc:postgresql://127.0.0.1:5432/BookStore", "postgres", "gilbert11");
-				Statement st = connection.createStatement();
-				ResultSet rs = st.executeQuery("SELECT VERSION()");
-
-	            if (rs.next()) {
-	                System.out.println("DBHelper: The Database Version is " + rs.getString(1));
-	            }
- 
-		} catch (SQLException e) {
- 
-			System.out.println("DBHelper: Connection Failed! Check output console");
-			e.printStackTrace();
-			return null;
- 
-		}
- 
-		if (connection != null) {
-			System.out.println("DBHelper: You have a database connection!");
-		}
-		return connection;
+	    return DriverManager.getConnection(dbUrl, username, password);
 	}
+
 }

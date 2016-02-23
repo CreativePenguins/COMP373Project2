@@ -3,6 +3,12 @@ package com.fms.view;
 import com.fms.model.facility.*;
 import com.fms.model.maintenance.*;
 import com.fms.model.users.*;
+import com.fms.dal.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 /**
  * This class will employ the object classes and their methods
@@ -36,6 +42,8 @@ public class FacilityClient1 {
 	testBuilding.addTenantToRoom(t1, 201);
 	testBuilding.addTenantToRoom(t2, 201);
 	System.out.println(testBuilding.toString());
+	Statement st = DBHelper.getConnection().createStatement();
+
 	//instantiating objects and using methods in Maintenance
 	}
 }
