@@ -1,3 +1,2 @@
-**COMP 373 Project 1**
+**COMP 373 Project 2**
 ---
-*fms* - "Facility Management System"
