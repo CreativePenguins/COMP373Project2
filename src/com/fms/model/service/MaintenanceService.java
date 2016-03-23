@@ -1,15 +1,16 @@
 package com.fms.model.service;
-import com.fms.dal.*;
+import com.fms.dal.maintenance.*;
 import com.fms.model.maintenance.*;
 
 public class MaintenanceService {
-	private MaintenanceDAO maintDAO = new MaintenanceDAO();
+	private IssueDAO issueDAO = new IssueDAO();
+	private IssueTypeDAO issTyDAO = new IssueTypeDAO();
 	
 	//search issues by ID from the DB
 	public Issues findIssueById(String issueID) {
 			
 		try {
-			Issues issue = maintDAO.getIssue(issueID);
+			Issues issue = issueDAO.getIssue(issueID);
 	    	return issue;
 	    } catch (Exception se) {
 	      System.err.println("MaintenanceService: Threw a Exception retrieving Issue.");
@@ -22,7 +23,7 @@ public class MaintenanceService {
 	public void addIssue(Issues i) {
 		
 		try {
-			maintDAO.addIssue(i);
+			issueDAO.addIssue(i);
 	    } catch (Exception se) {
 	      System.err.println("MaintenanceService: Threw a Exception adding issue.");
 	      System.err.println(se.getMessage());
@@ -31,7 +32,7 @@ public class MaintenanceService {
 	//Retrieve IssueType by ID from the database
 	public IssueType FindIssueTypeByID (String issuetypeID){
 		try {
-			IssueType issuetype = maintDAO.getIssueType(issuetypeID);
+			IssueType issuetype = issTyDAO.getIssueType(issuetypeID);
 	    	return issuetype;
 	    } catch (Exception se) {
 	      System.err.println("MaintenanceService: Threw a Exception retrieving IssueType.");
@@ -42,7 +43,7 @@ public class MaintenanceService {
 	//Insert a new IssueType into the DB
 	public void addIssueType(IssueType i) {
 		try {
-			maintDAO.addIssueType(i);
+			issTyDAO.addIssueType(i);
 	    } catch (Exception se) {
 	      System.err.println("MaintenanceService: Threw a Exception adding IssueType.");
 	      System.err.println(se.getMessage());

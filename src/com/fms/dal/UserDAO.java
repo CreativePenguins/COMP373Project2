@@ -1,7 +1,7 @@
 package com.fms.dal;
-import com.fms.model.maintenance.IssueType;
+import com.fms.dal.maintenance.IssueDAO;
+import com.fms.dal.maintenance.IssueTypeDAO;
 import com.fms.model.users.*;
-import com.fms.dal.MaintenanceDAO;
 
 import java.net.URISyntaxException;
 import java.sql.Connection;
@@ -63,7 +63,8 @@ public class UserDAO {
 	}
 	
 	public Employees getEmployee(String employeeID) throws URISyntaxException {
-		MaintenanceDAO mdao = new MaintenanceDAO();
+		IssueTypeDAO itdao = new IssueTypeDAO();
+
 		try {
 			Statement st = DBHelper.getConnection().createStatement();
 			String selectEmployeeQuery = "SELECT employeeid, specialty1, specialty2, specialty3, firstname, lastname FROM Employees Where employeeid = '" + employeeID + "'";
@@ -78,12 +79,12 @@ public class UserDAO {
 				employees.setID(empRS.getString("employeeid"));
 				employees.setFirstName(empRS.getString("firstname"));
 				employees.setLastName(empRS.getString("lastname"));
-				if(!(mdao.getIssueType(empRS.getString("specialty1")) ==null))
-					employees.addSpecialty(mdao.getIssueType(empRS.getString("specialty1")));
-				if(!(mdao.getIssueType(empRS.getString("specialty2")) ==null))
-					employees.addSpecialty(mdao.getIssueType(empRS.getString("specialty2")));
-				if(!(mdao.getIssueType(empRS.getString("specialty3")) ==null))
-					employees.addSpecialty(mdao.getIssueType(empRS.getString("specialty3")));
+				if(!(itdao.getIssueType(empRS.getString("specialty1")) ==null))
+					employees.addSpecialty(itdao.getIssueType(empRS.getString("specialty1")));
+				if(!(itdao.getIssueType(empRS.getString("specialty2")) ==null))
+					employees.addSpecialty(itdao.getIssueType(empRS.getString("specialty2")));
+				if(!(itdao.getIssueType(empRS.getString("specialty3")) ==null))
+					employees.addSpecialty(itdao.getIssueType(empRS.getString("specialty3")));
 			} empRS.close();
 			st.close();
 			return employees;
