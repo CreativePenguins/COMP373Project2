@@ -5,17 +5,16 @@ import com.fms.model.maintenance.*;
 public class Employees extends Users {
 
     // Attributes
-    private String ID;
+    private String ID = "";
     private int maxIssues = 10;
     private ArrayList<IssueType> specialities = new ArrayList<IssueType>();
 
     // Constructor
     public Employees(){}
 
-    public Employees(String first, String last, String id) {
+    public Employees(String first, String last) {
         setFirstName(first);
         setLastName(last);
-        setID(id);
     }
     
     // Accessors and mutators

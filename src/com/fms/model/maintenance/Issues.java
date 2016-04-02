@@ -17,6 +17,7 @@ public class Issues {
     private Room roomLocation;
     private Building buildingLocation;
     private String creationDate;
+    private boolean resolved;
 
     // Methods
     public Issues(Tenants reporter, Room roomLocation, Building buildingLocation){
@@ -106,5 +107,11 @@ public class Issues {
 		String s = ("Date Created: " + creationDate + "\nIssue Type: " + issueType.getDescription() + "\nBuilding No. " + buildingLocation.getBuildingID() +
 				"\nRoom No. " + roomLocation + "" + "\nEmployee Assigned: " + assignee + "\nComments: " + comments + "\n");
 		return s;
+	}
+	public void setResolved(boolean r){
+		resolved = r;
+	}
+	public boolean getResolved(){
+		return resolved;
 	}
 }
