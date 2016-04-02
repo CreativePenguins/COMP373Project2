@@ -18,6 +18,7 @@ public class Issues {
     private Building buildingLocation;
     private String creationDate;
     private boolean resolved;
+    private String resolvedDate;
 
     // Methods
     public Issues(Tenants reporter, Room roomLocation, Building buildingLocation){
@@ -110,8 +111,15 @@ public class Issues {
 	}
 	public void setResolved(boolean r){
 		resolved = r;
+		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        //get current date time with Date()
+        Date d = new Date();
+        resolvedDate = dateFormat.format(d);
 	}
 	public boolean getResolved(){
-		return resolved;
+		return resolved;	
+	}
+	public String getResolvedDate(){
+		return resolvedDate;
 	}
 }

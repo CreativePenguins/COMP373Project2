@@ -5,23 +5,28 @@ import com.fms.model.users.*;
 
 public class Building {
 	
-	private String BuildingID;
+	private String BuildingID = "";
 	private Address address;
 	private ArrayList<Issues> issues;
 	private ArrayList<Room> rooms = new ArrayList<Room>();
 	//every building is a box
-	public Building(String BID, int floors, int rooms, Address a){
-		BuildingID = BID;
+	//this construction method is when the record is not persisting
+	public Building(int floors, int rooms, Address a){
 		address = a;
 		for (int i = 1; i <=floors; i++){
 			for (int x = 0; x<rooms; x++){
 				Room temp = new Room();
 				int roomno = (i*100) + x;
 				temp.setRoomNo(roomno);
-				temp.setRoomID(BID + roomno);
 				this.rooms.add(temp);
 			}
 		}
+	}
+	//this construction method is when the method is in a persistent layer
+	public Building (String bid, int floors, int rooms, Address a)
+	{
+		address = a;
+		setRooms(bid, floors, rooms);
 	}
 	public Building(){}
 	
@@ -30,6 +35,9 @@ public class Building {
 	}
 	public void setBuildingID(String id) {
 		BuildingID = id;
+		for (Room r : rooms){
+			r.setRoomID(id + r.getRoomNo());
+		}
 	}
 	public Address getAddress() {
 		return address;

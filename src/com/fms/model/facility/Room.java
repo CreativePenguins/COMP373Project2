@@ -1,10 +1,9 @@
 package com.fms.model.facility;
 import java.util.ArrayList;
-import java.util.List;
 import com.fms.model.users.*;
 
 public class Room {
-	private String RoomID;
+	private String RoomID = "";
 	private int RoomNo;
 	private boolean vacant = true;
 	private ArrayList<Tenants> tenants = new ArrayList<Tenants>();

@@ -1,7 +1,7 @@
 package com.fms.model.facility;
 
 public class Address {
-	private String AddressID;
+	private String AddressID ="";
 	private int addressNumber;
 	private String street; 
 	private String city; 

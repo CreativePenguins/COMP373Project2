@@ -1,15 +1,17 @@
 package com.fms.model.service;
-import com.fms.dal.*;
+import com.fms.dal.facility.*;
 import com.fms.model.facility.*;
 
 public class FacilityService {
-	private FacilityDAO facDAO = new FacilityDAO();
+	private AddressDAO addDAO = new AddressDAO();
+	private RoomDAO roomDAO = new RoomDAO();
+	private BuildingDAO buiDAO = new BuildingDAO();
 	
 	//search Buildings by ID from the DB
 		public Building findBuildingById(String buildingID) {
 				
 			try {
-				Building building = facDAO.getBuilding(buildingID);
+				Building building = buiDAO.getBuilding(buildingID);
 		    	return building;
 		    } catch (Exception se) {
 		      System.err.println("FacilityService: Threw a Exception retrieving Building.");
@@ -22,7 +24,7 @@ public class FacilityService {
 		public void addBuilding(Building b) {
 			
 			try {
-				facDAO.addBuilding(b);
+				buiDAO.addBuilding(b);
 		    } catch (Exception se) {
 		      System.err.println("FacilityService: Threw a Exception adding Building.");
 		      System.err.println(se.getMessage());
@@ -32,7 +34,7 @@ public class FacilityService {
 		public Address findAddressById(String addressID) {
 				
 			try {
-				Address address = facDAO.getAddress(addressID);
+				Address address = addDAO.getAddress(addressID);
 		    	return address;
 		    } catch (Exception se) {
 		      System.err.println("FacilityService: Threw a Exception retrieving Address.");
@@ -45,7 +47,7 @@ public class FacilityService {
 		public void addAddress(Address a) {
 			
 			try {
-				facDAO.addAddress(a);
+				addDAO.addAddress(a);
 		    } catch (Exception se) {
 		      System.err.println("FacilityService: Threw a Exception adding Address.");
 		      System.err.println(se.getMessage());
@@ -55,7 +57,7 @@ public class FacilityService {
 		public Room findRoomById(String roomID) {
 				
 			try {
-				Room room = facDAO.getRoom(roomID);
+				Room room = roomDAO.getRoom(roomID);
 		    	return room;
 		    } catch (Exception se) {
 		      System.err.println("FacilityService: Threw a Exception retrieving Room.");

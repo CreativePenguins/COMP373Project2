@@ -12,7 +12,7 @@ import com.fms.model.facility.Building;
 import com.fms.model.facility.Room;
 
 public class RoomDAO {
-	RoomDAO(){};
+	public RoomDAO(){};
 	
 	public Room getRoom(String RoomID) throws SQLException, URISyntaxException{
     	Statement st = DBHelper.getConnection().createStatement();
