@@ -4,17 +4,17 @@ package com.fms.model.users;
 public class Tenants extends Users {
 
     // Attributes
-    private String tenID; // Primary key
+    private int tenID; // Primary key
     private boolean primary;
 
     // Accessors and Mutators
     public Tenants(){primary = false;}
     
-    public String getTenID() {
+    public int getTenID() {
         return tenID;
     }
 
-    public void setTenID(String tenID) {
+    public void setTenID(int tenID) {
         this.tenID = tenID;
     }
 

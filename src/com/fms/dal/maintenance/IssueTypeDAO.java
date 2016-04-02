@@ -3,7 +3,7 @@ package com.fms.dal.maintenance;
 import java.net.URISyntaxException;
 import java.sql.*;
 
-import com.fms.dal.DBHelper;
+import com.fms.dal.helper.DBHelper;
 import com.fms.model.maintenance.IssueType;
 
 /**
@@ -15,14 +15,14 @@ public class IssueTypeDAO {
     public IssueType getIssueType(String issueTypeID) throws SQLException, URISyntaxException{
         try {
             Statement st = DBHelper.getConnection().createStatement();
-            String selectIssTypeQuery = "SELECT typeid, description FROM issuetypes WHERE typeid = '" + issueTypeID + "'";
+            String selectIssTypeQuery = "SELECT type_id, description FROM issuetypes WHERE type_id = '" + issueTypeID + "'";
 
             ResultSet istRS = st.executeQuery(selectIssTypeQuery);
             System.out.println("IssTypeDAO: **************** Query " + selectIssTypeQuery);
 
             IssueType issueType = new IssueType();
             while (istRS.next()) {
-                issueType.setId(istRS.getString("typeid"));
+                issueType.setId(istRS.getInt("type_id"));
                 issueType.setDescription(istRS.getString("description"));
             }
             istRS.close();
@@ -39,9 +39,8 @@ public class IssueTypeDAO {
         PreparedStatement istyPst = null;
 
         try {
-            String istyStm = "INSERT INTO issuetypes(typeid, description) VALUES(?, ?)";
+            String istyStm = "INSERT INTO issuetypes(description) VALUES(?, ?)";
             istyPst = con.prepareStatement(istyStm);
-            istyPst.setString(1, issuetype.getId());
             istyPst.setString(2, issuetype.getDescription());
             istyPst.executeUpdate();
         } catch (SQLException ex) {System.out.println(ex);}

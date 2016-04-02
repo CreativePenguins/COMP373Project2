@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import com.fms.dal.DBHelper;
+import com.fms.dal.helper.DBHelper;
 import com.fms.model.facility.Building;
 import com.fms.model.facility.Room;
 
@@ -16,12 +16,12 @@ public class RoomDAO {
 	
 	public Room getRoom(String RoomID) throws SQLException, URISyntaxException{
     	Statement st = DBHelper.getConnection().createStatement();
-    	String selectRoomQuery = "SELECT roomid, roomno FROM room WHERE roomID ='" + RoomID + "'";
+    	String selectRoomQuery = "SELECT room_id, roomno FROM room WHERE room_ID ='" + RoomID + "'";
     	
     	ResultSet roomRS = st.executeQuery(selectRoomQuery);
 		Room r = new Room();
 		while (roomRS.next()){
-			r.setRoomID(roomRS.getString("roomid"));
+			r.setRoomID(roomRS.getInt("room_id"));
 			r.setRoomNo(roomRS.getInt("roomno"));
 		}
 		return r;
@@ -32,9 +32,8 @@ public class RoomDAO {
 	try{
 		String rooStm = "INSERT INTO Room(roomid, roomno, buildingid) VALUES(?, ?, ?)";
 		roomPst = con.prepareStatement(rooStm);
-		roomPst.setString(1, room.getRoomID());
 		roomPst.setInt(2, room.getRoomNo());
-		roomPst.setString(3, building.getBuildingID());
+		roomPst.setInt(3, building.getBuildingID());
 		roomPst.executeUpdate();
 	} catch (SQLException ex) {System.out.println(ex);}
 	}

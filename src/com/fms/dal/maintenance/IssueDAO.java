@@ -3,7 +3,7 @@ package com.fms.dal.maintenance;
 import java.net.URISyntaxException;
 import java.sql.*;
 
-import com.fms.dal.DBHelper;
+import com.fms.dal.helper.DBHelper;
 import com.fms.model.maintenance.Issues;
 
 /**

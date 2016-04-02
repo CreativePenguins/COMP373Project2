@@ -9,7 +9,7 @@ import com.fms.model.facility.*;
 public class Issues {
 
     // Attributes
-    private String Issueid;
+    private int Issueid;
     private IssueType issueType;
     private Employees assignee;
     private String comments;
@@ -40,11 +40,11 @@ public class Issues {
             return true;
     }
 
-	public String getIssueid() {
+	public int getIssueid() {
 		return Issueid;
 	}
 
-	public void setIssueid(String issueid) {
+	public void setIssueid(int issueid) {
 		Issueid = issueid;
 	}
 

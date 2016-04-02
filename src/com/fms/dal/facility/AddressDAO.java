@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import com.fms.dal.DBHelper;
+import com.fms.dal.helper.DBHelper;
 import com.fms.model.facility.Address;
 
 public class AddressDAO {
@@ -15,14 +15,14 @@ public class AddressDAO {
 	
 	public Address getAddress(String addressID) throws SQLException, URISyntaxException{
     	Statement st = DBHelper.getConnection().createStatement();
-    	String selectAddressQuery = "SELECT AddressID, AddressNo, Street, City, State, Zip FROM Address WHERE AddressID ='" + addressID + "'";
+    	String selectAddressQuery = "SELECT Address_ID, AddressNo, Street, City, State, Zip FROM Address WHERE AddressID ='" + addressID + "'";
     	
     	ResultSet addRS = st.executeQuery(selectAddressQuery);
     	
     	//Get Address 
     	Address address = new Address();
     	while (addRS.next()){
-    		address.setAddressID(addRS.getString("AddressID"));
+    		address.setAddressID(addRS.getInt("Address_ID"));
     		address.setAddressNumber(addRS.getInt("AddressNo"));
     		address.setStreet(addRS.getString("Street"));
     		address.setCity(addRS.getString("City"));
@@ -39,9 +39,8 @@ public class AddressDAO {
 		PreparedStatement addPst = null;
 		
 		try{
-		String addStm = "INSERT INTO Address(addressid, addressno, street, city, state, zip) VALUES(?, ?, ?, ?, ?, ?)";
+		String addStm = "INSERT INTO Address(addressno, street, city, state, zip) VALUES(?, ?, ?, ?, ?, ?)";
 		addPst = con.prepareStatement(addStm);
-		addPst.setString(1,  address.getAddressID());
 		addPst.setInt(2, address.getAddressNumber());
 		addPst.setString(3, address.getStreet());
 		addPst.setString(4, address.getCity());

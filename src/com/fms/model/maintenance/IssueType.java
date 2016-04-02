@@ -3,7 +3,7 @@ package com.fms.model.maintenance;
 public class IssueType {
 
     // Attributes
-    private String id="";
+    private int id;
     private String description;
 
     // Constructors
@@ -16,11 +16,11 @@ public class IssueType {
     }
 
     // Accessor and mutators
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

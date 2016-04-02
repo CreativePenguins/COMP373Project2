@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import com.fms.dal.DBHelper;
+import com.fms.dal.helper.DBHelper;
 import com.fms.dal.maintenance.IssueTypeDAO;
 import com.fms.model.users.Employees;
 
@@ -19,7 +19,7 @@ public class EmployeeDAO {
 
 		try {
 			Statement st = DBHelper.getConnection().createStatement();
-			String selectEmployeeQuery = "SELECT employeeid, specialty1, specialty2, specialty3, firstname, lastname FROM Employees Where employeeid = '" + employeeID + "'";
+			String selectEmployeeQuery = "SELECT employee_id, specialty1, specialty2, specialty3, firstname, lastname FROM Employees Where employeeid = '" + employeeID + "'";
 
 			ResultSet empRS = st.executeQuery(selectEmployeeQuery);
 			System.out.println("EmployeeDAO: *************** Query " + selectEmployeeQuery);
@@ -28,7 +28,7 @@ public class EmployeeDAO {
 
 
 			while (empRS.next()) {
-				employees.setID(empRS.getString("employeeid"));
+				employees.setID(empRS.getInt("employee_id"));
 				employees.setFirstName(empRS.getString("firstname"));
 				employees.setLastName(empRS.getString("lastname"));
 				if(!(itdao.getIssueType(empRS.getString("specialty1")) ==null))
@@ -53,17 +53,16 @@ public class EmployeeDAO {
 		PreparedStatement empPst = null;
 
 		try {
-			String empStm = "INSERT INTO Employees(employeeid, specialty1, specialty2, specialty3, firstname, lastname) VALUES (?, ?, ?, ?, ?, ?)";
+			String empStm = "INSERT INTO Employees(specialty1, specialty2, specialty3, firstname, lastname) VALUES (?, ?, ?, ?, ?, ?)";
 			empPst = con.prepareStatement(empStm);
-			empPst.setString(1, employee.getID());
 			empPst.setString(5, employee.getFirstName());
 			empPst.setString(6, employee.getLastName());
 			if(employee.getSpecialtyNum(0) != null)
-				empPst.setString(2, employee.getSpecialtyNum(0).getId());
+				empPst.setInt(2, employee.getSpecialtyNum(0).getId());
 			if(employee.getSpecialtySize() > 1)
-				empPst.setString(3, employee.getSpecialtyNum(1).getId());
+				empPst.setInt(3, employee.getSpecialtyNum(1).getId());
 			if(employee.getSpecialtySize() > 2)
-				empPst.setString(4, employee.getSpecialtyNum(2).getId());
+				empPst.setInt(4, employee.getSpecialtyNum(2).getId());
 			empPst.executeUpdate();
 		} catch (SQLException ex) { System.err.println(ex.getMessage()); }
 		finally {

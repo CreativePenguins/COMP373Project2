@@ -1,4 +1,4 @@
-package com.fms.dal;
+package com.fms.dal.helper;
 
 import java.net.URI;
 import java.net.URISyntaxException;

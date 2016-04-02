@@ -5,7 +5,7 @@ import com.fms.model.users.*;
 
 public class Building {
 	
-	private String BuildingID = "";
+	private int BuildingID;
 	private Address address;
 	private ArrayList<Issues> issues;
 	private ArrayList<Room> rooms = new ArrayList<Room>();
@@ -23,21 +23,18 @@ public class Building {
 		}
 	}
 	//this construction method is when the method is in a persistent layer
-	public Building (String bid, int floors, int rooms, Address a)
+	public Building (int bid, int floors, int rooms, Address a)
 	{
 		address = a;
 		setRooms(bid, floors, rooms);
 	}
 	public Building(){}
 	
-	public String getBuildingID() {
+	public int getBuildingID() {
 		return BuildingID;
 	}
-	public void setBuildingID(String id) {
+	public void setBuildingID(int id) {
 		BuildingID = id;
-		for (Room r : rooms){
-			r.setRoomID(id + r.getRoomNo());
-		}
 	}
 	public Address getAddress() {
 		return address;
@@ -65,7 +62,7 @@ public class Building {
 		}
 		return s;
 	}
-	public void setRooms(String BID,int floors, int rooms){
+	public void setRooms(int BID,int floors, int rooms){
 		for (int i = 1; i <=floors; i++){
 			for (int x = 0; x<rooms; x++){
 				Room temp = new Room();

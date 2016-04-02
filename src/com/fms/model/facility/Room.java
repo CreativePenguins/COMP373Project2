@@ -3,17 +3,17 @@ import java.util.ArrayList;
 import com.fms.model.users.*;
 
 public class Room {
-	private String RoomID = "";
+	private int RoomID;
 	private int RoomNo;
 	private boolean vacant = true;
 	private ArrayList<Tenants> tenants = new ArrayList<Tenants>();
 	
 	public Room(){}
 	
-	public String getRoomID() {
+	public int getRoomID() {
 		return RoomID;
 	}
-	public void setRoomID(String roomID) {
+	public void setRoomID(int roomID) {
 		RoomID = roomID;
 	}
 	public int getRoomNo() {

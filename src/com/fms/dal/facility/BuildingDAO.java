@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import com.fms.dal.DBHelper;
+import com.fms.dal.helper.DBHelper;
 import com.fms.model.facility.Address;
 import com.fms.model.facility.Building;
 import com.fms.model.facility.Room;
@@ -18,7 +18,7 @@ public class BuildingDAO {
 	public Building getBuilding(String buildingID) throws SQLException, URISyntaxException{
 		Statement st = DBHelper.getConnection().createStatement();
 		AddressDAO ad = new AddressDAO();
-		String selectBuildingQuery = "SELECT BuildingID, addressid FROM Building WHERE BuildingID = '" + buildingID + "'";
+		String selectBuildingQuery = "SELECT Building_ID, addressid FROM Building WHERE Building_ID = '" + buildingID + "'";
     	
 		ResultSet builRS = st.executeQuery(selectBuildingQuery);
 		
@@ -26,7 +26,7 @@ public class BuildingDAO {
 		Building building = new Building();
 		String addressID = ""; 
 		while (builRS.next() ){
-			building.setBuildingID(builRS.getString("BuildingID"));
+			building.setBuildingID(builRS.getInt("Building_ID"));
 			addressID = builRS.getString("AddressID");
 		}
 		Address a = ad.getAddress(addressID);
@@ -43,10 +43,9 @@ public class BuildingDAO {
 		
 		try {
 			//Insert the Building object 
-			String builStm = "INSERT INTO Building (buildingid, addressid) VALUES(?, ?)";
+			String builStm = "INSERT INTO Building (addressid) VALUES(?, ?)";
 			builPst = con.prepareStatement(builStm);
-			builPst.setString(1,  building.getBuildingID());
-			builPst.setString(2, building.getAddress().getAddressID());
+			builPst.setInt(2, building.getAddress().getAddressID());
 			builPst.executeUpdate();
 			//add the buildings address to the database
 			ad.addAddress(building.getAddress());

@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import com.fms.dal.DBHelper;
+import com.fms.dal.helper.DBHelper;
 import com.fms.model.users.Tenants;
 
 public class TenantDAO {
@@ -17,14 +17,14 @@ public class TenantDAO {
 
 		try {
 			Statement st = DBHelper.getConnection().createStatement();
-			String selectTenantQuery = "SELECT TenantID, FirstName, LastName, RoomID FROM Tenants WHERE TenantID = '" + tenantID + "'";
+			String selectTenantQuery = "SELECT Tenant_ID, FirstName, LastName, RoomID FROM Tenants WHERE TenantID = '" + tenantID + "'";
 
 			ResultSet tenRS = st.executeQuery(selectTenantQuery);
 			System.out.println("TenantDAO: ------- Query " + selectTenantQuery);
 
 			Tenants tenant = new Tenants();
 			while (tenRS.next()) {
-				tenant.setTenID(tenRS.getString("TenantID"));
+				tenant.setTenID(tenRS.getInt("Tenant_ID"));
 				tenant.setLastName(tenRS.getString("LastName"));
 				tenant.setFirstName(tenRS.getString("FirstName"));
 			} tenRS.close();
@@ -42,10 +42,9 @@ public class TenantDAO {
 		PreparedStatement tenPst = null;
 
 		try {
-			String tenStm = "INSERT INTO Tenants(TenantID, FirstName, LastName) VALUES(?, ?, ?)";
+			String tenStm = "INSERT INTO Tenants( FirstName, LastName) VALUES(?, ?, ?)";
 			System.out.println(tenPst);
 			tenPst = con.prepareStatement(tenStm);
-			tenPst.setString(1, tenant.getTenID());
 			tenPst.setString(3, tenant.getFirstName());
 			tenPst.setString(4, tenant.getLastName());
 			tenPst.executeUpdate();
