@@ -1,6 +1,11 @@
 
 # Created by https://www.gitignore.io/api/intellij,eclipse,java
 
+### Tyler's Ignore List ###
+
+Hibernate
+Spring
+
 ### Intellij ###
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio and Webstorm
 
