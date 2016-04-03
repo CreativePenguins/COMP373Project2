@@ -13,7 +13,7 @@ import com.fms.model.facility.AddressImpl;
 public class AddressDAO {
 	public AddressDAO(){};
 	
-	public AddressImpl getAddress(String addressID) throws SQLException, URISyntaxException{
+	public AddressImpl getAddress(int addressID) throws SQLException, URISyntaxException{
     	Statement st = DBHelper.getConnection().createStatement();
     	String selectAddressQuery = "SELECT Address_ID, AddressNo, Street, City, State, Zip FROM Address WHERE AddressID ='" + addressID + "'";
     	

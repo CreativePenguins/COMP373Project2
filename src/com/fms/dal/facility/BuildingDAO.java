@@ -15,7 +15,7 @@ import com.fms.model.facility.RoomImpl;
 public class BuildingDAO {
 	public BuildingDAO(){};
 	
-	public BuildingImpl getBuilding(String buildingID) throws SQLException, URISyntaxException{
+	public BuildingImpl getBuilding(int buildingID) throws SQLException, URISyntaxException{
 		Statement st = DBHelper.getConnection().createStatement();
 		AddressDAO ad = new AddressDAO();
 		String selectBuildingQuery = "SELECT Building_ID, addressid FROM Building WHERE Building_ID = '" + buildingID + "'";

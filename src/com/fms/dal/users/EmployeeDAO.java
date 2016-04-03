@@ -14,7 +14,7 @@ import com.fms.model.users.Employees;
 public class EmployeeDAO {
 	public EmployeeDAO(){};
 	
-	public Employees getEmployee(String employeeID) throws URISyntaxException {
+	public Employees getEmployee(int employeeID) throws URISyntaxException {
 		IssueTypeDAO itdao = new IssueTypeDAO();
 
 		try {
@@ -24,7 +24,7 @@ public class EmployeeDAO {
 			ResultSet empRS = st.executeQuery(selectEmployeeQuery);
 			System.out.println("EmployeeDAO: *************** Query " + selectEmployeeQuery);
 
-			Employees employees = new Employees();
+			Employees employees = new EmployeesImpl();
 
 
 			while (empRS.next()) {

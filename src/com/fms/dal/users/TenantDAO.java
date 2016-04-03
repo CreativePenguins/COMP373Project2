@@ -13,7 +13,7 @@ import com.fms.model.users.Tenants;
 public class TenantDAO {
 	public TenantDAO(){};
 	
-	public Tenants getTenant(String tenantID) throws URISyntaxException {
+	public Tenants getTenant(int tenantID) throws URISyntaxException {
 
 		try {
 			Statement st = DBHelper.getConnection().createStatement();

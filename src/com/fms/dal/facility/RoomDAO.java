@@ -14,7 +14,7 @@ import com.fms.model.facility.RoomImpl;
 public class RoomDAO {
 	public RoomDAO(){};
 	
-	public RoomImpl getRoom(String RoomID) throws SQLException, URISyntaxException{
+	public RoomImpl getRoom(int RoomID) throws SQLException, URISyntaxException{
     	Statement st = DBHelper.getConnection().createStatement();
     	String selectRoomQuery = "SELECT room_id, roomno FROM room WHERE room_ID ='" + RoomID + "'";
     	

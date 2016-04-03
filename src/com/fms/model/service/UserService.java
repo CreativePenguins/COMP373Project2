@@ -8,7 +8,7 @@ public class UserService {
 	private TenantDAO tenDAO = new TenantDAO();
 	
 	//search tenants by ID from the DB
-		public Tenants findTenantById(String tenantID) {
+		public Tenants findTenantById(int tenantID) {
 				
 			try {
 				Tenants tenant = tenDAO.getTenant(tenantID);
@@ -30,7 +30,7 @@ public class UserService {
 		    }
 		}
 		//search Employees by ID from the DB
-		public Employees findEmployeeById(String employeeID) {
+		public Employees findEmployeeById(int employeeID) {
 				
 			try {
 				Employees employee = empDAO.getEmployee(employeeID);

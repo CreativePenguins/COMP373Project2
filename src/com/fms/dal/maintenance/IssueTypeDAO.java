@@ -12,7 +12,7 @@ import com.fms.model.maintenance.IssueTypeImpl;
 public class IssueTypeDAO {
     public IssueTypeDAO() {}
 
-    public IssueTypeImpl getIssueType(String issueTypeID) throws SQLException, URISyntaxException{
+    public IssueTypeImpl getIssueType(int issueTypeID) throws SQLException, URISyntaxException{
         try {
             Statement st = DBHelper.getConnection().createStatement();
             String selectIssTypeQuery = "SELECT type_id, description FROM issuetypes WHERE type_id = '" + issueTypeID + "'";

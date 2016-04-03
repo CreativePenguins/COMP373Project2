@@ -8,7 +8,7 @@ public class FacilityService {
 	private BuildingDAO buiDAO = new BuildingDAO();
 	
 	//search Buildings by ID from the DB
-		public BuildingImpl findBuildingById(String buildingID) {
+		public BuildingImpl findBuildingById(int buildingID) {
 				
 			try {
 				BuildingImpl building = buiDAO.getBuilding(buildingID);
@@ -31,7 +31,7 @@ public class FacilityService {
 		    }
 		} 
 		//search addresses by ID from the DB
-		public AddressImpl findAddressById(String addressID) {
+		public AddressImpl findAddressById(int addressID) {
 				
 			try {
 				AddressImpl address = addDAO.getAddress(addressID);
@@ -54,7 +54,7 @@ public class FacilityService {
 		    }
 		}
 		//search rooms by ID from the DB
-		public RoomImpl findRoomById(String roomID) {
+		public RoomImpl findRoomById(int roomID) {
 				
 			try {
 				RoomImpl room = roomDAO.getRoom(roomID);

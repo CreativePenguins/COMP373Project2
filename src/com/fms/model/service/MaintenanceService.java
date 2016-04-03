@@ -7,7 +7,7 @@ public class MaintenanceService {
 	private IssueTypeDAO issTyDAO = new IssueTypeDAO();
 	
 	//search issues by ID from the DB
-	public Issues findIssueById(String issueID) {
+	public Issues findIssueById(int issueID) {
 			
 		try {
 			Issues issue = issueDAO.getIssue(issueID);
@@ -30,7 +30,7 @@ public class MaintenanceService {
 	    }
 	}
 	//Retrieve IssueType by ID from the database
-	public IssueTypeImpl FindIssueTypeByID (String issuetypeID){
+	public IssueTypeImpl FindIssueTypeByID (int issuetypeID){
 		try {
 			IssueTypeImpl issuetype = issTyDAO.getIssueType(issuetypeID);
 	    	return issuetype;

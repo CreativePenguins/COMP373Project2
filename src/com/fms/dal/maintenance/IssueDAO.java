@@ -14,7 +14,7 @@ public class IssueDAO {
     }
 
     // TODO Retrieves isses from database.
-    public Issues getIssue(String issueID) throws SQLException, URISyntaxException {
+    public Issues getIssue(int issueID) throws SQLException, URISyntaxException {
         Issues i = new Issues();
         Statement st = DBHelper.getConnection().createStatement();
         return i;
