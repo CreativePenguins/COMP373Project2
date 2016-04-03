@@ -2,8 +2,12 @@ package com.fms.view;
 
 public class FacilityMaintenanceManager {
 	
-	public void makeFacilityMainRequest(){};
-	public void calcMaintenanceCostForFacility(){};
+	public void makeFacilityMainRequest(){
+		//create new issue
+	};
+	public void calcMaintenanceCostForFacility(){
+		//done by the employee
+	};
 	public void calcProblemRateForFacility(){};
 	public void calcDownTimeForFacility(){};
 	public void listMaintRequests(){};

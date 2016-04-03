@@ -24,4 +24,6 @@ public interface Issues {
 	public void setResolved(boolean r);
 	public boolean getResolved();
 	public String getResolvedDate();
+	public void setCost(float c);
+	public float getCost();
 }
