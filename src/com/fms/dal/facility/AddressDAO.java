@@ -8,19 +8,19 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import com.fms.dal.helper.DBHelper;
-import com.fms.model.facility.Address;
+import com.fms.model.facility.AddressImpl;
 
 public class AddressDAO {
 	public AddressDAO(){};
 	
-	public Address getAddress(String addressID) throws SQLException, URISyntaxException{
+	public AddressImpl getAddress(String addressID) throws SQLException, URISyntaxException{
     	Statement st = DBHelper.getConnection().createStatement();
     	String selectAddressQuery = "SELECT Address_ID, AddressNo, Street, City, State, Zip FROM Address WHERE AddressID ='" + addressID + "'";
     	
     	ResultSet addRS = st.executeQuery(selectAddressQuery);
     	
     	//Get Address 
-    	Address address = new Address();
+    	AddressImpl address = new AddressImpl();
     	while (addRS.next()){
     		address.setAddressID(addRS.getInt("Address_ID"));
     		address.setAddressNumber(addRS.getInt("AddressNo"));
@@ -34,7 +34,7 @@ public class AddressDAO {
     	return address;
 	}
 	
-	public void addAddress(Address address) throws URISyntaxException, SQLException{
+	public void addAddress(AddressImpl address) throws URISyntaxException, SQLException{
 		Connection con = DBHelper.getConnection();
 		PreparedStatement addPst = null;
 		

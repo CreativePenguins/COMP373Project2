@@ -4,7 +4,7 @@ import java.net.URISyntaxException;
 import java.sql.*;
 
 import com.fms.dal.helper.DBHelper;
-import com.fms.model.maintenance.IssueType;
+import com.fms.model.maintenance.IssueTypeImpl;
 
 /**
  * Created by Tyler on 3/22/16.
@@ -12,7 +12,7 @@ import com.fms.model.maintenance.IssueType;
 public class IssueTypeDAO {
     public IssueTypeDAO() {}
 
-    public IssueType getIssueType(String issueTypeID) throws SQLException, URISyntaxException{
+    public IssueTypeImpl getIssueType(String issueTypeID) throws SQLException, URISyntaxException{
         try {
             Statement st = DBHelper.getConnection().createStatement();
             String selectIssTypeQuery = "SELECT type_id, description FROM issuetypes WHERE type_id = '" + issueTypeID + "'";
@@ -20,7 +20,7 @@ public class IssueTypeDAO {
             ResultSet istRS = st.executeQuery(selectIssTypeQuery);
             System.out.println("IssTypeDAO: **************** Query " + selectIssTypeQuery);
 
-            IssueType issueType = new IssueType();
+            IssueTypeImpl issueType = new IssueTypeImpl();
             while (istRS.next()) {
                 issueType.setId(istRS.getInt("type_id"));
                 issueType.setDescription(istRS.getString("description"));
@@ -34,7 +34,7 @@ public class IssueTypeDAO {
         } return null;
     }
 
-    public void addIssueType(IssueType issuetype) throws URISyntaxException, SQLException{
+    public void addIssueType(IssueTypeImpl issuetype) throws URISyntaxException, SQLException{
         Connection con = DBHelper.getConnection();
         PreparedStatement istyPst = null;
 

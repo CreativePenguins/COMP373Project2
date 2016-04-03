@@ -30,9 +30,9 @@ public class MaintenanceService {
 	    }
 	}
 	//Retrieve IssueType by ID from the database
-	public IssueType FindIssueTypeByID (String issuetypeID){
+	public IssueTypeImpl FindIssueTypeByID (String issuetypeID){
 		try {
-			IssueType issuetype = issTyDAO.getIssueType(issuetypeID);
+			IssueTypeImpl issuetype = issTyDAO.getIssueType(issuetypeID);
 	    	return issuetype;
 	    } catch (Exception se) {
 	      System.err.println("MaintenanceService: Threw a Exception retrieving IssueType.");
@@ -41,7 +41,7 @@ public class MaintenanceService {
 		return null;
 	}
 	//Insert a new IssueType into the DB
-	public void addIssueType(IssueType i) {
+	public void addIssueType(IssueTypeImpl i) {
 		try {
 			issTyDAO.addIssueType(i);
 	    } catch (Exception se) {

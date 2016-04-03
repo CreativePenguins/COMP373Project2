@@ -8,14 +8,14 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import com.fms.dal.helper.DBHelper;
-import com.fms.model.facility.Address;
-import com.fms.model.facility.Building;
-import com.fms.model.facility.Room;
+import com.fms.model.facility.AddressImpl;
+import com.fms.model.facility.BuildingImpl;
+import com.fms.model.facility.RoomImpl;
 
 public class BuildingDAO {
 	public BuildingDAO(){};
 	
-	public Building getBuilding(String buildingID) throws SQLException, URISyntaxException{
+	public BuildingImpl getBuilding(String buildingID) throws SQLException, URISyntaxException{
 		Statement st = DBHelper.getConnection().createStatement();
 		AddressDAO ad = new AddressDAO();
 		String selectBuildingQuery = "SELECT Building_ID, addressid FROM Building WHERE Building_ID = '" + buildingID + "'";
@@ -23,19 +23,19 @@ public class BuildingDAO {
 		ResultSet builRS = st.executeQuery(selectBuildingQuery);
 		
 		//Get Building 
-		Building building = new Building();
+		BuildingImpl building = new BuildingImpl();
 		String addressID = ""; 
 		while (builRS.next() ){
 			building.setBuildingID(builRS.getInt("Building_ID"));
 			addressID = builRS.getString("AddressID");
 		}
-		Address a = ad.getAddress(addressID);
+		AddressImpl a = ad.getAddress(addressID);
 		
 		building.setAddress(a);
 		return building;
 	}
 	
-	public void addBuilding (Building building) throws URISyntaxException, SQLException{
+	public void addBuilding (BuildingImpl building) throws URISyntaxException, SQLException{
 		Connection con = DBHelper.getConnection();
 		AddressDAO ad = new AddressDAO();
 		RoomDAO rd = new RoomDAO();
@@ -50,7 +50,7 @@ public class BuildingDAO {
 			//add the buildings address to the database
 			ad.addAddress(building.getAddress());
 			//add each room in the building to the database
-			for (Room r: building.getRooms()){
+			for (RoomImpl r: building.getRooms()){
 				rd.addRoom(r, building);
 			}
 		} catch (SQLException ex){}

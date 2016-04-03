@@ -2,48 +2,13 @@ package com.fms.model.users;
 import java.util.ArrayList;
 import com.fms.model.maintenance.*; 
 
-public class Employees extends Users {
-
+public interface Employees {
     // Attributes
-    private int ID;
-    private int maxIssues = 10;
-    private ArrayList<IssueType> specialities = new ArrayList<IssueType>();
-
-    // Constructor
-    public Employees(){}
-
-    public Employees(String first, String last) {
-        setFirstName(first);
-        setLastName(last);
-    }
-    
-    // Accessors and mutators
-    public int getID() {
-        return ID;
-    }
-
-    public void setID(int ID) {
-        this.ID = ID;
-    }
-
-    public int getMaxIssues() {
-        return maxIssues;
-    }
-
-    public ArrayList<IssueType> getSpecialities() {
-        return specialities;
-    }
-
-    public IssueType getSpecialtyNum(int i) {
-        return specialities.get(i);
-    }
-
-    public int getSpecialtySize() {
-        return specialities.size();
-    }
-
-    public void addSpecialty(IssueType issueType) {
-        specialities.add(issueType);
-    }
-
+    public int getID();
+    public void setID(int ID);
+    public int getMaxIssues();
+    public ArrayList<IssueType> getSpecialities();
+    public IssueType getSpecialtyNum(int i);
+    public int getSpecialtySize();
+    public void addSpecialty(IssueType issueType);
 }

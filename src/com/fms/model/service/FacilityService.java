@@ -8,10 +8,10 @@ public class FacilityService {
 	private BuildingDAO buiDAO = new BuildingDAO();
 	
 	//search Buildings by ID from the DB
-		public Building findBuildingById(String buildingID) {
+		public BuildingImpl findBuildingById(String buildingID) {
 				
 			try {
-				Building building = buiDAO.getBuilding(buildingID);
+				BuildingImpl building = buiDAO.getBuilding(buildingID);
 		    	return building;
 		    } catch (Exception se) {
 		      System.err.println("FacilityService: Threw a Exception retrieving Building.");
@@ -21,7 +21,7 @@ public class FacilityService {
 		}
 		
 		//Insert a new building in the DB
-		public void addBuilding(Building b) {
+		public void addBuilding(BuildingImpl b) {
 			
 			try {
 				buiDAO.addBuilding(b);
@@ -31,10 +31,10 @@ public class FacilityService {
 		    }
 		} 
 		//search addresses by ID from the DB
-		public Address findAddressById(String addressID) {
+		public AddressImpl findAddressById(String addressID) {
 				
 			try {
-				Address address = addDAO.getAddress(addressID);
+				AddressImpl address = addDAO.getAddress(addressID);
 		    	return address;
 		    } catch (Exception se) {
 		      System.err.println("FacilityService: Threw a Exception retrieving Address.");
@@ -44,7 +44,7 @@ public class FacilityService {
 		}
 		
 		//Insert a new address in the DB
-		public void addAddress(Address a) {
+		public void addAddress(AddressImpl a) {
 			
 			try {
 				addDAO.addAddress(a);
@@ -54,10 +54,10 @@ public class FacilityService {
 		    }
 		}
 		//search rooms by ID from the DB
-		public Room findRoomById(String roomID) {
+		public RoomImpl findRoomById(String roomID) {
 				
 			try {
-				Room room = roomDAO.getRoom(roomID);
+				RoomImpl room = roomDAO.getRoom(roomID);
 		    	return room;
 		    } catch (Exception se) {
 		      System.err.println("FacilityService: Threw a Exception retrieving Room.");
