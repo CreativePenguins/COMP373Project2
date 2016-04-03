@@ -20,6 +20,7 @@ public class IssuesImpl implements Issues {
     private boolean resolved;
     private String resolvedDate;
 	private float cost;
+	private int estimatedTime;
 
     // Methods
     public IssuesImpl(Tenants reporter, Room roomLocation, Building buildingLocation){
@@ -125,4 +126,12 @@ public class IssuesImpl implements Issues {
 	}
 	public void setCost(float c) {cost = c;}
 	public float getCost() {return cost;}
+
+	public void setTime(int t) {
+		estimatedTime = t;
+	}
+
+	public int getTime() {
+		return 0;
+	}
 }
