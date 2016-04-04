@@ -1,7 +1,8 @@
 package com.fms.view;
 
-import com.fms.model.facility.*;
+import com.fms.model.facility.Building;
 import com.fms.model.maintenance.Issues;
+
 import java.util.ArrayList;
 
 public class FacilityMaintenanceManager {

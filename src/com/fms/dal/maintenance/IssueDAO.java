@@ -1,12 +1,6 @@
 package com.fms.dal.maintenance;
 
-import com.fms.dal.helper.DBHelper;
 import com.fms.model.maintenance.Issues;
-
-import java.net.URISyntaxException;
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.sql.Statement;
 
 /**
  * Created by Tyler on 3/22/16.
@@ -15,15 +9,17 @@ public class IssueDAO {
     public IssueDAO() {
     }
 
-    // TODO Retrieves isses from database.
-    public int getIssue(int issueID) throws SQLException, URISyntaxException {
-        //Issues i = new Issues();
-        Statement st = DBHelper.getConnection().createStatement();
+    // TODO Retrieves issues from database.
+    public int getIssue(int issueID) {
         return issueID;
     }
 
     // TODO Adds issues to database
-    public void addIssue(Issues issue) throws URISyntaxException, SQLException {
-        Connection con = DBHelper.getConnection();
+    public void addIssue(Issues issue)  {
+    }
+
+    //TODO deletes issues in database
+    public void deleteIssue(int IssueID){
+
     }
 }

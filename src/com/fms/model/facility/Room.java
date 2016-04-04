@@ -1,8 +1,8 @@
 package com.fms.model.facility;
 
-import java.util.ArrayList;
-
 import com.fms.model.users.Tenants;
+
+import java.util.ArrayList;
 
 public interface Room {
 	public int getRoomID();

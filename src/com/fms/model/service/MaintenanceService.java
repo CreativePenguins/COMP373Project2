@@ -1,6 +1,9 @@
 package com.fms.model.service;
-import com.fms.dal.maintenance.*;
-import com.fms.model.maintenance.*;
+
+import com.fms.dal.maintenance.IssueDAO;
+import com.fms.dal.maintenance.IssueTypeDAO;
+import com.fms.model.maintenance.IssueTypeImpl;
+import com.fms.model.maintenance.Issues;
 
 public class MaintenanceService {
 	private IssueDAO issueDAO = new IssueDAO();

@@ -1,6 +1,8 @@
 package com.fms.model.facility;
+
+import com.fms.model.users.Tenants;
+
 import java.util.ArrayList;
-import com.fms.model.users.*;
 
 public class RoomImpl implements Room {
 	private int RoomID;

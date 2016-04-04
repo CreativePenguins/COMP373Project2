@@ -1,5 +1,8 @@
 package com.fms.view;
-import com.fms.model.facility.*;
+
+import com.fms.model.facility.Building;
+import com.fms.model.facility.Room;
+
 import java.util.ArrayList;
 
 public class FacilityClientManager {

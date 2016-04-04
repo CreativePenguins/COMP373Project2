@@ -1,9 +1,9 @@
 package com.fms.model.facility;
 
-import java.util.ArrayList;
-
 import com.fms.model.maintenance.Issues;
 import com.fms.model.users.Tenants;
+
+import java.util.ArrayList;
 
 public interface Building {
 	public int getBuildingID();

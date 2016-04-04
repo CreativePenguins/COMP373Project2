@@ -1,7 +1,9 @@
 package com.fms.model.service;
 
-import com.fms.model.users.*;
-import com.fms.dal.users.*;
+import com.fms.dal.users.EmployeeDAO;
+import com.fms.dal.users.TenantDAO;
+import com.fms.model.users.Employees;
+import com.fms.model.users.Tenants;
 
 public class UserService {
 	private EmployeeDAO empDAO = new EmployeeDAO();

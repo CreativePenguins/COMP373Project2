@@ -1,10 +1,5 @@
 package com.fms.view;
 
-import com.fms.model.facility.*;
-import com.fms.model.maintenance.*;
-import com.fms.model.users.*;
-import com.fms.model.service.*;
-import com.fms.view.*;
 /**
  * This class will employ the object classes and their methods
  * @author Tom and Tyler

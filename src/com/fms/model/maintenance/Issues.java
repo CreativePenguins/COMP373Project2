@@ -1,7 +1,9 @@
 package com.fms.model.maintenance;
 
-import com.fms.model.users.*;
-import com.fms.model.facility.*;
+import com.fms.model.facility.Building;
+import com.fms.model.facility.Room;
+import com.fms.model.users.Employees;
+import com.fms.model.users.Tenants;
 
 public interface Issues {
 	public int getIssueId();

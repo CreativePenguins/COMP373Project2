@@ -1,6 +1,7 @@
 package com.fms.model.service;
-import com.fms.dal.facility.*;
-import com.fms.model.facility.*;
+
+import com.fms.dal.facility.BuildingDAO;
+import com.fms.model.facility.BuildingImpl;
 
 public class FacilityService {
 	//private AddressDAO addDAO = new AddressDAO();
@@ -30,39 +31,8 @@ public class FacilityService {
 		      System.err.println(se.getMessage());
 		    }
 		} 
-		//search addresses by ID from the DB
-		/**public AddressImpl findAddressById(int addressID) {
-				
-			try {
-				AddressImpl address = addDAO.getAddress(addressID);
-		    	return address;
-		    } catch (Exception se) {
-		      System.err.println("FacilityService: Threw a Exception retrieving Address.");
-		      System.err.println(se.getMessage());
-		    }
-			return null;
-		}**/
-		
-		//Insert a new address in the DB
-		/**public void addAddress(AddressImpl a) {
-			
-			try {
-				addDAO.addAddress(a);
-		    } catch (Exception se) {
-		      System.err.println("FacilityService: Threw a Exception adding Address.");
-		      System.err.println(se.getMessage());
-		    }
+
+		public void deleteBuilding(BuildingImpl b) {
+
 		}
-		//search rooms by ID from the DB
-		public RoomImpl findRoomById(int roomID) {
-				
-			try {
-				RoomImpl room = roomDAO.getRoom(roomID);
-		    	return room;
-		    } catch (Exception se) {
-		      System.err.println("FacilityService: Threw a Exception retrieving Room.");
-		      System.err.println(se.getMessage());
-		    }
-			return null;
-		}		**/
 }

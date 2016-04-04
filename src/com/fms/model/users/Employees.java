@@ -1,6 +1,8 @@
 package com.fms.model.users;
+
+import com.fms.model.maintenance.IssueType;
+
 import java.util.ArrayList;
-import com.fms.model.maintenance.*; 
 
 public interface Employees {
     // Attributes
