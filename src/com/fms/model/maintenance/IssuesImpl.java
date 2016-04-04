@@ -1,15 +1,18 @@
 package com.fms.model.maintenance;
 
-import java.util.Date;
+import com.fms.model.facility.Building;
+import com.fms.model.facility.Room;
+import com.fms.model.users.Employees;
+import com.fms.model.users.Tenants;
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import com.fms.model.users.*;
-import com.fms.model.facility.*;
+import java.util.Date;
 
 public class IssuesImpl implements Issues {
 
     // Attributes
-    private int Issueid;
+    private int IssueId;
     private IssueType issueType;
     private Employees assignee;
     private String comments;
@@ -42,12 +45,12 @@ public class IssuesImpl implements Issues {
             return true;
     }
 
-	public int getIssueid() {
-		return Issueid;
+	public int getIssueId() {
+		return IssueId;
 	}
 
-	public void setIssueid(int issueid) {
-		Issueid = issueid;
+	public void setIssueId(int issueId) {
+		IssueId = issueId;
 	}
 
 	public IssueType getIssueType() {
@@ -132,6 +135,6 @@ public class IssuesImpl implements Issues {
 	}
 
 	public int getTime() {
-		return 0;
+		return estimatedTime;
 	}
 }

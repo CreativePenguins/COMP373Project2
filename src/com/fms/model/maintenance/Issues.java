@@ -4,8 +4,8 @@ import com.fms.model.users.*;
 import com.fms.model.facility.*;
 
 public interface Issues {
-	public int getIssueid();
-	public void setIssueid(int issueid);
+	public int getIssueId();
+	public void setIssueId(int issueId);
 	public IssueType getIssueType();
 	public void setIssueType(IssueType issueType);
 	public Employees getAssignee();

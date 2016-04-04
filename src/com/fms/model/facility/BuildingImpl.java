@@ -1,14 +1,15 @@
 package com.fms.model.facility;
 
+import com.fms.model.maintenance.Issues;
+import com.fms.model.users.Tenants;
+
 import java.util.ArrayList;
-import com.fms.model.maintenance.*;
-import com.fms.model.users.*;
 
 public class BuildingImpl {
 	
 	private int BuildingID;
 	private Address address;
-	private ArrayList<Issues> issues;
+	private ArrayList<Issues> issues = new ArrayList<Issues>();
 	private ArrayList<Room> rooms = new ArrayList<Room>();
 	//every building is a box
 	//this construction method is when the record is not persisting

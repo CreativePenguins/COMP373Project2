@@ -3,4 +3,14 @@
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping package="com.fms.model.facility">
+    <class name="AddressImpl"  table="address">
+        <id name="AddressID" type="integer" column="address_id">
+        <generator class="native"/>
+        </id>
+        <property name ="addressNumber" type="integer" column="addressno"/>
+        <property name="street" type="string" column="street"/>
+        <property name="city" type="string" column="city"/>
+        <property name="state" type="string" column="state"/>
+        <property name="zip" type="integer" column="zip"/>
+    </class>
 </hibernate-mapping>
