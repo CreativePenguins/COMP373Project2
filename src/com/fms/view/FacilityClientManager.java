@@ -24,7 +24,12 @@ public class FacilityClientManager {
 		}
 		return count;
 	};
-	public void addNewFacility(){};
-	public void addFacilityDetail(){};
+	public void addNewFacility(){
+		//this will create a new facility
+	};
+	public void addFacilityDetail(){
+		//this will add a detail to a facility
+		//can update address , add detail, add tenant
+	};
 	public void removeFacility(){};
 }
