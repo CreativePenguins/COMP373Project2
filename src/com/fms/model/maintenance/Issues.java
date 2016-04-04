@@ -26,6 +26,6 @@ public interface Issues {
 	public String getResolvedDate();
 	public void setCost(float c);
 	public float getCost();
-	public void setTime(int t);
-	public int getTime();
+	public void setEstimatedTime(int t);
+	public int getEstimatedTime();
 }

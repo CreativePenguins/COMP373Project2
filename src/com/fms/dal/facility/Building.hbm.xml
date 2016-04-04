@@ -5,8 +5,11 @@
 <hibernate-mapping package="com.fms.model.facility">
     <class name="BuildingImpl"  table="building">
         <id name="BuildingID" type="integer" column="building_id">
-        <generator class="native"/>
+        <generator class="increment"/>
          </id>
+        //is this right?
         <component name ="Address" class="com.fms.model.facility.AddressImpl" ></component>
+        //ArrayList<Issues>;
+        //ArrayList<Room>;
     </class>
 </hibernate-mapping>

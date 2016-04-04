@@ -5,7 +5,7 @@
 <hibernate-mapping package="com.fms.model.facility">
     <class name="AddressImpl"  table="address">
         <id name="AddressID" type="integer" column="address_id">
-        <generator class="native"/>
+        <generator class="increment"/>
         </id>
         <property name ="addressNumber" type="integer" column="addressno"/>
         <property name="street" type="string" column="street"/>

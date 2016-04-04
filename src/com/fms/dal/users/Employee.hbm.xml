@@ -3,4 +3,12 @@
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping package="com.fms.model.users">
+    <class name="EmployeesImpl"  table="Employees">
+    <id name="ID" type="integer" column="employee_id">
+        <generator class="increment"/>
+    </id>
+        <!-- ArrayList<IssueType> specialities id map to three fields in Employees table-->
+        <property name="lastName" type="string" column="lastname"/>
+        <property name="firstName" type="string" column="firstname"/>
+    </class>
 </hibernate-mapping>

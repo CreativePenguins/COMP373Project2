@@ -3,4 +3,12 @@
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping package="com.fms.model.facility">
+    <class name="RoomImpl"  table="room">
+        <id name="RoomID" type="integer" column="room_id">
+            <generator class="increment"/>
+        </id>
+        <property name ="RoomNo" type="integer" column="roomno"/>
+        <property name="vacant" type="boolean" column="vacant"/>
+        //ArrayList<Tenants> each tenant maps to the tenant table
+    </class>
 </hibernate-mapping>

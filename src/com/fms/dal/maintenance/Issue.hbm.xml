@@ -3,4 +3,20 @@
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping package="com.fms.model.maintenance">
+    <class name="IssuesImpl"  table="issues">
+        <id name="IssueId" type="integer" column="issue_id">
+            <generator class="increment"/>
+        </id>
+        <property name ="comments" type="string" column="comments"/>
+        <property name="creationDate" type="string" column="date"/>
+        <property name="resolved" type="boolean" column="resolved"/>
+        <property name="resolvedDate" type="string" column="datefinished"/>
+        <property name="cost" type="float" column="cost"/>
+        <property name="estimatedTime" type="integer" column="estimatedtime"/>
+        <!--//IssueType needs to have its id map to Issues
+        //Assignee (Employee) needs to have its id map to Issues
+        //Reporter (Tenants) needs to have its id map to Issues
+        //RoomLocation (Room) needs to have its id map to issues
+        //building location needs to have its id map to issues-->
+    </class>
 </hibernate-mapping>

@@ -1,16 +1,10 @@
 package com.fms.dal.facility;
 
-import java.net.URISyntaxException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-
 import com.fms.dal.helper.DBHelper;
-import com.fms.model.facility.AddressImpl;
 import com.fms.model.facility.BuildingImpl;
-import com.fms.model.facility.RoomImpl;
+
+import java.net.URISyntaxException;
+import java.sql.*;
 
 public class BuildingDAO {
 	public BuildingDAO(){};
@@ -31,7 +25,7 @@ public class BuildingDAO {
 		}
 		//AddressImpl a = ad.getAddress(addressID);
 		
-		building.setAddress(a);
+		//building.setAddress(a);
 		return building;
 	}
 	
@@ -50,9 +44,9 @@ public class BuildingDAO {
 			//add the buildings address to the database
 			//ad.addAddress(building.getAddress());
 			//add each room in the building to the database
-			for (RoomImpl r: building.getRooms()){
+			//for (RoomImpl r: building.getRooms()){
 				//rd.addRoom(r, building);
-			}
+			//}
 		} catch (SQLException ex){}
 	}
 }

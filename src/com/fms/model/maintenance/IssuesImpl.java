@@ -130,11 +130,11 @@ public class IssuesImpl implements Issues {
 	public void setCost(float c) {cost = c;}
 	public float getCost() {return cost;}
 
-	public void setTime(int t) {
+	public void setEstimatedTime(int t) {
 		estimatedTime = t;
 	}
 
-	public int getTime() {
+	public int getEstimatedTime() {
 		return estimatedTime;
 	}
 }

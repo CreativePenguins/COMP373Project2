@@ -3,8 +3,8 @@ import com.fms.dal.facility.*;
 import com.fms.model.facility.*;
 
 public class FacilityService {
-	private AddressDAO addDAO = new AddressDAO();
-	private RoomDAO roomDAO = new RoomDAO();
+	//private AddressDAO addDAO = new AddressDAO();
+	//private RoomDAO roomDAO = new RoomDAO();
 	private BuildingDAO buiDAO = new BuildingDAO();
 	
 	//search Buildings by ID from the DB
@@ -31,7 +31,7 @@ public class FacilityService {
 		    }
 		} 
 		//search addresses by ID from the DB
-		public AddressImpl findAddressById(int addressID) {
+		/**public AddressImpl findAddressById(int addressID) {
 				
 			try {
 				AddressImpl address = addDAO.getAddress(addressID);
@@ -41,10 +41,10 @@ public class FacilityService {
 		      System.err.println(se.getMessage());
 		    }
 			return null;
-		}
+		}**/
 		
 		//Insert a new address in the DB
-		public void addAddress(AddressImpl a) {
+		/**public void addAddress(AddressImpl a) {
 			
 			try {
 				addDAO.addAddress(a);
@@ -64,5 +64,5 @@ public class FacilityService {
 		      System.err.println(se.getMessage());
 		    }
 			return null;
-		}		
+		}		**/
 }
