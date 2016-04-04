@@ -7,9 +7,16 @@
         <id name="BuildingID" type="integer" column="building_id">
         <generator class="increment"/>
          </id>
-        //is this right?
-        <component name ="Address" class="com.fms.model.facility.AddressImpl" ></component>
-        //ArrayList<Issues>;
-        //ArrayList<Room>;
+        <many-to-one name="address" class="AddressImpl" column="addressid" cascade="save-update" unique="true"/>
+        <list name="issues">
+            <key column="buildinglocation"/>
+            <list-index column="idx"/>
+            <one-to-many class="com.fms.model.maintenance.IssuesImpl"/>
+        </list>
+        <list name="rooms" cascade="all">
+            <key column="buildingid"/>
+            <list-index column="idx"/>
+            <one-to-many class="RoomImpl"/>
+        </list>
     </class>
 </hibernate-mapping>

@@ -13,6 +13,10 @@
         <property name="resolvedDate" type="string" column="datefinished"/>
         <property name="cost" type="float" column="cost"/>
         <property name="estimatedTime" type="integer" column="estimatedtime"/>
+        <many-to-one name="assignee" class="com.fms.model.users.EmployeesImpl" column="assignee" />
+        <many-to-one name="reporter" class="com.fms.model.users.TenantsImpl" column="reporter" />
+        <many-to-one name="roomLocation" class="com.fms.model.facility.RoomImpl" column="roomlocation" />
+        <many-to-one name="buildingLocation" class="com.fms.model.facility.BuildingImpl" column="buildinglocation" />
         <!--//IssueType needs to have its id map to Issues
         //Assignee (Employee) needs to have its id map to Issues
         //Reporter (Tenants) needs to have its id map to Issues
