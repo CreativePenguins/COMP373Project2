@@ -3,4 +3,10 @@
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping package="com.fms.model.facility">
+    <class name="BuildingImpl"  table="building">
+        <id name="BuildingID" type="integer" column="building_id">
+        <generator class="native"/>
+         </id>
+        <component name ="Address" class="com.fms.model.facility.AddressImpl" ></component>
+    </class>
 </hibernate-mapping>
