@@ -3,7 +3,7 @@ package com.fms.model.service;
 import com.fms.dal.maintenance.IssueDAO;
 import com.fms.dal.maintenance.IssueTypeDAO;
 import com.fms.model.maintenance.IssueTypeImpl;
-import com.fms.model.maintenance.IssuesImpl;
+import com.fms.model.maintenance.*;
 
 public class MaintenanceService {
 	private IssueDAO issueDAO = new IssueDAO();
@@ -21,9 +21,12 @@ public class MaintenanceService {
 	    }
 		return null;
 	}
-	
+	//get all Issues in the database
+	public /** ArrayList<Issues>**/ int getAllIssues(){
+		return 0;
+	}
 	//Insert a new Issue in the DB
-	public void addIssue(IssuesImpl i) {
+	public void addIssue(Issues i) {
 		
 		try {
 			issueDAO.addIssue(i);
@@ -33,7 +36,7 @@ public class MaintenanceService {
 	    }
 	}
 	//delete issue in the DB
-	public void deleteIssueByID(int IssueID){
+	public void deleteIssue(Issues IssueID){
 		try {
 			issueDAO.deleteIssue(IssueID);
 		}catch (Exception se) {
@@ -53,7 +56,7 @@ public class MaintenanceService {
 		return null;
 	}
 	//Insert a new IssueType into the DB
-	public void addIssueType(IssueTypeImpl i) {
+	public void addIssueType(IssueType i) {
 		try {
 			issTyDAO.addIssueType(i);
 	    } catch (Exception se) {

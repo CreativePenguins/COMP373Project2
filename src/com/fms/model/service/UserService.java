@@ -3,7 +3,9 @@ package com.fms.model.service;
 import com.fms.dal.users.EmployeeDAO;
 import com.fms.dal.users.TenantDAO;
 import com.fms.model.users.Employees;
+import com.fms.model.users.EmployeesImpl;
 import com.fms.model.users.Tenants;
+import com.fms.model.users.TenantsImpl;
 
 public class UserService {
 	private EmployeeDAO empDAO = new EmployeeDAO();
@@ -32,7 +34,7 @@ public class UserService {
 		    }
 		}
 		//delete Tenants by ID from the DB
-		public void deleteTenantbyID (int TenID){
+		public void deleteTenantbyID (Tenants TenID){
 			try {
 				tenDAO.deleteTenant(TenID);
 			} catch (Exception se) {
@@ -65,7 +67,7 @@ public class UserService {
 		}
 
 		//Delete an Employee in the DB
-		public void deleteEmployee (int EmpID){
+		public void deleteEmployee (Employees EmpID){
 			try {
 				empDAO.deleteEmployee(EmpID);
 			} catch (Exception se){

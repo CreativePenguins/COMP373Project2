@@ -1,7 +1,7 @@
 package com.fms.model.service;
 
 import com.fms.dal.facility.BuildingDAO;
-import com.fms.model.facility.BuildingImpl;
+import com.fms.model.facility.*;
 
 public class FacilityService {
 	private BuildingDAO buiDAO = new BuildingDAO();
@@ -20,7 +20,7 @@ public class FacilityService {
 		}
 		
 		//Insert a new building in the DB
-		public void addBuilding(BuildingImpl b) {
+		public void addBuilding(Building b) {
 			
 			try {
 				buiDAO.addBuilding(b);
@@ -30,7 +30,7 @@ public class FacilityService {
 		    }
 		} 
 
-		public void deleteBuildingByID(int bID) {
+		public void deleteBuilding(Building bID) {
 			try{
 				buiDAO.deleteBuilding(bID);
 			} catch (Exception se) {

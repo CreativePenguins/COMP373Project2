@@ -5,7 +5,6 @@
 <hibernate-mapping package="com.fms.model.facility">
     <class name="RoomImpl"  table="room">
         <id name="RoomID" type="integer" column="room_id">
-            <generator class="increment"/>
         </id>
         <property name ="RoomNo" type="integer" column="roomno"/>
         <property name="vacant" type="boolean" column="vacant"/>

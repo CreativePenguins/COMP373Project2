@@ -5,9 +5,8 @@
 <hibernate-mapping package="com.fms.model.facility">
     <class name="BuildingImpl"  table="building">
         <id name="BuildingID" type="integer" column="building_id">
-        <generator class="increment"/>
-         </id>
-        <many-to-one name="address" class="AddressImpl" column="addressid" cascade="save-update" unique="true"/>
+        </id>
+        <many-to-one name="address" class="AddressImpl" column="addressid" cascade="all" unique="true"/>
         <list name="issues">
             <key column="buildinglocation"/>
             <list-index column="idx"/>

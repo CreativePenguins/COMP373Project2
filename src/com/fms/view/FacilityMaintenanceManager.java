@@ -28,7 +28,7 @@ public class FacilityMaintenanceManager {
 		int timeleft=0;
 		ArrayList<Issues> i =  b.getIssues();
 		for (Issues iss : i){
-			if (!iss.getResolved()) timeleft+=iss.getTime();
+			if (!iss.getResolved()) timeleft+=iss.getEstimatedTime();
 		}
 		System.out.print("Total time left: " + timeleft);
 	};

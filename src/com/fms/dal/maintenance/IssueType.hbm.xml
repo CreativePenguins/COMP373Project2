@@ -5,7 +5,6 @@
 <hibernate-mapping package="com.fms.model.maintenance">
     <class name="IssueTypeImpl"  table="issuetypes">
     <id name="id" type="integer" column="issuetype_id">
-        <generator class="increment"/>
     </id>
         <property name="description" type="string" column="description"/>
     </class>

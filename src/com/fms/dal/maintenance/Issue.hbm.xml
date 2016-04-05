@@ -5,7 +5,6 @@
 <hibernate-mapping package="com.fms.model.maintenance">
     <class name="IssuesImpl"  table="issues">
         <id name="IssueId" type="integer" column="issue_id">
-            <generator class="increment"/>
         </id>
         <property name ="comments" type="string" column="comments"/>
         <property name="creationDate" type="string" column="date"/>
