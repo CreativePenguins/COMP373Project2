@@ -2,6 +2,7 @@ package com.fms.model.facility;
 
 import com.fms.model.maintenance.Issues;
 import com.fms.model.users.Tenants;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
 
@@ -30,12 +31,14 @@ public class BuildingImpl {
 	public int getBuildingID() {
 		return BuildingID;
 	}
+	@Autowired
 	public void setBuildingID(int id) {
 		BuildingID = id;
 	}
 	public Address getAddress() {
 		return address;
 	}
+	@Autowired
 	public void setAddress(Address address) {
 		this.address = address;
 	}

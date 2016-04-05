@@ -1,5 +1,7 @@
 package com.fms.model.users;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 public class UsersImpl implements Users {
 	private String firstName;
 	private String lastName;
@@ -9,7 +11,8 @@ public class UsersImpl implements Users {
     public String getFirstName() {
         return firstName;
     }
-    
+
+    @Autowired
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
@@ -18,6 +21,7 @@ public class UsersImpl implements Users {
         return lastName;
     }
 
+    @Autowired
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }

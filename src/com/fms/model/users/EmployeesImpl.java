@@ -1,6 +1,7 @@
 package com.fms.model.users;
 
 import com.fms.model.maintenance.IssueType;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class EmployeesImpl extends UsersImpl implements Employees  {
 
@@ -23,6 +24,7 @@ public class EmployeesImpl extends UsersImpl implements Employees  {
         return ID;
     }
 
+    @Autowired
     public void setID(int ID) {
         this.ID = ID;
     }

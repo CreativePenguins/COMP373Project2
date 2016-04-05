@@ -1,6 +1,8 @@
 package com.fms.model.users;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 public class TenantsImpl extends UsersImpl implements Tenants {
 
     // Attributes
@@ -14,6 +16,7 @@ public class TenantsImpl extends UsersImpl implements Tenants {
         return tenID;
     }
 
+    @Autowired
     public void setTenID(int tenID) {
         this.tenID = tenID;
     }
@@ -22,6 +25,7 @@ public class TenantsImpl extends UsersImpl implements Tenants {
         return primary;
     }
 
+    @Autowired
     public void setPrimary(boolean primary) {
         this.primary = primary;
     }

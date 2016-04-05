@@ -4,6 +4,7 @@ import com.fms.model.facility.Building;
 import com.fms.model.facility.Room;
 import com.fms.model.users.Employees;
 import com.fms.model.users.Tenants;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -49,6 +50,7 @@ public class IssuesImpl implements Issues {
 		return IssueId;
 	}
 
+	@Autowired
 	public void setIssueId(int issueId) {
 		IssueId = issueId;
 	}
@@ -57,6 +59,7 @@ public class IssuesImpl implements Issues {
 		return issueType;
 	}
 
+	@Autowired
 	public void setIssueType(IssueType issueType) {
 		this.issueType = issueType;
 	}
@@ -65,6 +68,7 @@ public class IssuesImpl implements Issues {
 		return assignee;
 	}
 
+	@Autowired
 	public void setAssignee(Employees assignee) {
 		this.assignee = assignee;
 	}
@@ -73,6 +77,7 @@ public class IssuesImpl implements Issues {
 		return comments;
 	}
 
+	@Autowired
 	public void setComments(String comments) {
 		this.comments = comments;
 	}
@@ -81,6 +86,7 @@ public class IssuesImpl implements Issues {
 		return reporter;
 	}
 
+	@Autowired
 	public void setReporter(Tenants reporter) {
 		this.reporter = reporter;
 	}
@@ -89,6 +95,7 @@ public class IssuesImpl implements Issues {
 		return roomLocation;
 	}
 
+	@Autowired
 	public void setRoomLocation(Room roomLocation) {
 		this.roomLocation = roomLocation;
 	}
@@ -97,6 +104,7 @@ public class IssuesImpl implements Issues {
 		return buildingLocation;
 	}
 
+	@Autowired
 	public void setBuildingLocation(Building buildingLocation) {
 		this.buildingLocation = buildingLocation;
 	}
@@ -105,6 +113,7 @@ public class IssuesImpl implements Issues {
 		return creationDate;
 	}
 
+	@Autowired
 	public void setCreationDate(String creationDate) {
 		this.creationDate = creationDate;
 	}
@@ -114,6 +123,8 @@ public class IssuesImpl implements Issues {
 				"\nRoom No. " + roomLocation + "" + "\nEmployee Assigned: " + assignee + "\nComments: " + comments + "\n");
 		return s;
 	}
+
+	@Autowired
 	public void setResolved(boolean r){
 		resolved = r;
 		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
@@ -127,9 +138,11 @@ public class IssuesImpl implements Issues {
 	public String getResolvedDate(){
 		return resolvedDate;
 	}
+	@Autowired
 	public void setCost(float c) {cost = c;}
 	public float getCost() {return cost;}
 
+	@Autowired
 	public void setEstimatedTime(int t) {
 		estimatedTime = t;
 	}
