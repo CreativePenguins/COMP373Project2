@@ -8,10 +8,8 @@ import java.util.ArrayList;
 
 public interface Building {
 	public int getBuildingID();
-	@Autowired
 	public void setBuildingID(int id);
 	public Address getAddress();
-	@Autowired
 	public void setAddress(Address address);
 	public int getIssueCount();
 	public ArrayList<Issues> getIssues();

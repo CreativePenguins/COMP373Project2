@@ -14,6 +14,7 @@ public class BuildingImpl {
 	private ArrayList<Room> rooms = new ArrayList<Room>();
 	//every building is a box
 	//this construction method is when the record is not persisting
+	@Autowired
 	public BuildingImpl(int floors, int rooms, Address a){
 		address = a;
 		for (int i = 1; i <=floors; i++){
