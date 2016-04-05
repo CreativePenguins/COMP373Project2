@@ -7,8 +7,10 @@
     <id name="ID" type="integer" column="employee_id">
         <generator class="increment"/>
     </id>
-        <!-- ArrayList<IssueType> specialities id map to three fields in Employees table-->
         <property name="lastName" type="string" column="lastname"/>
         <property name="firstName" type="string" column="firstname"/>
+        <many-to-one name="specialty1" class="com.fms.model.maintenance.IssueType" column="specialty1"/>
+        <many-to-one name="specialty2" class="com.fms.model.maintenance.IssueType" column="specialty2"/>
+        <many-to-one name="specialty3" class="com.fms.model.maintenance.IssueType" column="specialty3"/>
     </class>
 </hibernate-mapping>
