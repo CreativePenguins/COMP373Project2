@@ -7,7 +7,7 @@ public class FacilityService {
 	private BuildingDAO buiDAO = new BuildingDAO();
 	
 	//search Buildings by ID from the DB
-		public BuildingImpl findBuildingById(int buildingID) {
+		/*public BuildingImpl findBuildingById(int buildingID) {
 				
 			try {
 				BuildingImpl building = buiDAO.getBuilding(buildingID);
@@ -17,7 +17,7 @@ public class FacilityService {
 		      System.err.println(se.getMessage());
 		    }
 			return null;
-		}
+		}*/
 		
 		//Insert a new building in the DB
 		public void addBuilding(Building b) {
