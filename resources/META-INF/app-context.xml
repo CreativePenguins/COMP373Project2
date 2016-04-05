@@ -2,13 +2,34 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
-		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	                       http://www.springframework.org/schema/context
+	                       http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
-    <description>Wiring the dependencies for the Online book Store Application.</description>
+    <description>Wiring the dependencies for the facility management service layer.</description>
 
-    <context:component-scan base-package="com.fms" />
+    <context:annotation-config/>
 
+    <!--service layer beans-->
+    <bean class="com.fms.model.service.FacilityService"    id="facilityService"    scope="prototype"/>
+    <bean class="com.fms.model.service.MaintenanceService" id="maintenanceService" scope="prototype"/>
+    <bean class="com.fms.model.service.UserService"        id="userService"        scope="prototype"/>
 
+    <!--address beans-->
+    <bean class="com.fms.model.facility.AddressImpl"       id="address"            scope="prototype"/>
+
+    <!--issues beans-->
+    <bean class="com.fms.model.maintenance.IssuesImpl"     id="issues"             scope="prototype"/>
+    <bean class="com.fms.model.maintenance.IssueTypeImpl"  id="issueType"          scope="prototype"/>
+
+    <!--Facility Beans-->
+    <bean class="com.fms.model.facility.BuildingImpl"      id="building"           scope="prototype"/>
+    <bean class="com.fms.model.facility.RoomImpl"          id="room"               scope="prototype"/>
+
+    <!--User beans-->
+    <bean class="com.fms.model.users.EmployeesImpl"        id="employees"          scope="prototype"/>
+    <bean class="com.fms.model.users.TenantsImpl"          id="tenants"            scope="prototype"/>
+    <bean class="com.fms.model.users.UsersImpl"            id="users"              scope="prototype"/>
 
 </beans>

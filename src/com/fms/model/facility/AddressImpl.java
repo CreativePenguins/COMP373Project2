@@ -1,5 +1,7 @@
 package com.fms.model.facility;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 public class AddressImpl implements Address{
 	private int AddressID;
 	private int addressNumber;
@@ -22,6 +24,7 @@ public class AddressImpl implements Address{
 		return AddressID;
 	}
 
+	@Autowired
 	public void setAddressID(int addressID) {
 		AddressID = addressID;
 	}
@@ -30,6 +33,7 @@ public class AddressImpl implements Address{
 		return addressNumber;
 	}
 
+	@Autowired
 	public void setAddressNumber(int addressNumber) {
 		this.addressNumber = addressNumber;
 	}
@@ -38,6 +42,7 @@ public class AddressImpl implements Address{
 		return street;
 	}
 
+	@Autowired
 	public void setStreet(String street) {
 		this.street = street;
 	}
@@ -46,6 +51,7 @@ public class AddressImpl implements Address{
 		return city;
 	}
 
+	@Autowired
 	public void setCity(String city) {
 		this.city = city;
 	}
@@ -54,6 +60,7 @@ public class AddressImpl implements Address{
 		return state;
 	}
 
+	@Autowired
 	public void setState(String state) {
 		this.state = state;
 	}
@@ -62,6 +69,7 @@ public class AddressImpl implements Address{
 		return zip;
 	}
 
+	@Autowired
 	public void setZip(int zip) {
 		this.zip = zip;
 	}

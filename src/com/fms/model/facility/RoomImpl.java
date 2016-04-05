@@ -1,6 +1,7 @@
 package com.fms.model.facility;
 
 import com.fms.model.users.Tenants;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
 
@@ -15,18 +16,21 @@ public class RoomImpl implements Room {
 	public int getRoomID() {
 		return RoomID;
 	}
+	@Autowired
 	public void setRoomID(int roomID) {
 		RoomID = roomID;
 	}
 	public int getRoomNo() {
 		return RoomNo;
 	}
+	@Autowired
 	public void setRoomNo(int roomNo) {
 		RoomNo = roomNo;
 	}
 	public boolean isVacant() {
 		return vacant;
 	}
+	@Autowired
 	public void setVacant() {
 		this.vacant = tenants.isEmpty();
 	}
