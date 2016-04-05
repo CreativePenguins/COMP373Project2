@@ -31,14 +31,14 @@ public class BuildingImpl {
 	public int getBuildingID() {
 		return BuildingID;
 	}
-	@Autowired
+	
 	public void setBuildingID(int id) {
 		BuildingID = id;
 	}
 	public Address getAddress() {
 		return address;
 	}
-	@Autowired
+	
 	public void setAddress(Address address) {
 		this.address = address;
 	}

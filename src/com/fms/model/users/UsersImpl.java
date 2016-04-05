@@ -12,7 +12,7 @@ public class UsersImpl implements Users {
         return firstName;
     }
 
-    @Autowired
+    
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
@@ -21,7 +21,7 @@ public class UsersImpl implements Users {
         return lastName;
     }
 
-    @Autowired
+    
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }

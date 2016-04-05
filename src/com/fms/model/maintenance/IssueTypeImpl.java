@@ -22,7 +22,7 @@ public class IssueTypeImpl {
         return id;
     }
 
-    @Autowired
+    
     public void setId(int id) {
         this.id = id;
     }
@@ -31,7 +31,7 @@ public class IssueTypeImpl {
         return description;
     }
 
-    @Autowired
+    
     public void setDescription(String desc) {
         this.description = desc;
     }

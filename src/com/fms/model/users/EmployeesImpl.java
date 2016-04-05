@@ -24,7 +24,7 @@ public class EmployeesImpl extends UsersImpl implements Employees  {
         return ID;
     }
 
-    @Autowired
+    
     public void setID(int ID) {
         this.ID = ID;
     }
@@ -36,18 +36,22 @@ public class EmployeesImpl extends UsersImpl implements Employees  {
     public IssueType getSpecialty1(){
         return specialty1;
     }
+
+    
     public void setSpecialty1(IssueType t){
         specialty1 = t;
     }
     public IssueType getSpecialty2(){
         return specialty2;
     }
+    
     public void setSpecialty2(IssueType t){
         specialty2 = t;
     }
     public IssueType getSpecialty3(){
         return specialty3;
     }
+    
     public void setSpecialty3(IssueType t){
         specialty3 = t;
     }
