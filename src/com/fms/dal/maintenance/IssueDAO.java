@@ -1,6 +1,7 @@
 package com.fms.dal.maintenance;
 
 import com.fms.model.maintenance.Issues;
+import com.fms.model.maintenance.IssuesImpl;
 
 /**
  * Created by Tyler on 3/22/16.
@@ -10,8 +11,9 @@ public class IssueDAO {
     }
 
     // TODO Retrieves issues from database.
-    public int getIssue(int issueID) {
-        return issueID;
+    public IssuesImpl getIssue(int issueID) {
+        IssuesImpl issue = new IssuesImpl();
+        return issue;
     }
 
     // TODO Adds issues to database

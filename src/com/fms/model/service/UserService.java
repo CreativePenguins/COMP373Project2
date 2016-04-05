@@ -31,6 +31,15 @@ public class UserService {
 		      System.err.println(se.getMessage());
 		    }
 		}
+		//delete Tenants by ID from the DB
+		public void deleteTenantbyID (int TenID){
+			try {
+				tenDAO.deleteTenant(TenID);
+			} catch (Exception se) {
+				System.err.println("UserService: Threw an Exception deleting Tenant");
+				System.err.println(se.getMessage());
+			}
+		}
 		//search Employees by ID from the DB
 		public Employees findEmployeeById(int employeeID) {
 				
@@ -53,5 +62,15 @@ public class UserService {
 		      System.err.println("UserService: Threw a Exception adding Employee.");
 		      System.err.println(se.getMessage());
 		    }
+		}
+
+		//Delete an Employee in the DB
+		public void deleteEmployee (int EmpID){
+			try {
+				empDAO.deleteEmployee(EmpID);
+			} catch (Exception se){
+				System.err.println ("UserService: Threw an Exception deleting Employee");
+				System.err.println (se.getMessage());
+			}
 		}
 }

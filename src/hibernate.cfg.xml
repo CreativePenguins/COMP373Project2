@@ -5,6 +5,7 @@
 
 <hibernate-configuration>
     <session-factory>
+
         <!-- Database connection settings -->
         <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
         <property name="hibernate.connection.url"> jdbc:postgresql://ec2-54-83-198-111.compute-1.amazonaws.com:5432/d73f7ijqb8stbu?sslmode=require</property>

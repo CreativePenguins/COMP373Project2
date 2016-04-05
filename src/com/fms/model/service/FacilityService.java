@@ -4,8 +4,6 @@ import com.fms.dal.facility.BuildingDAO;
 import com.fms.model.facility.BuildingImpl;
 
 public class FacilityService {
-	//private AddressDAO addDAO = new AddressDAO();
-	//private RoomDAO roomDAO = new RoomDAO();
 	private BuildingDAO buiDAO = new BuildingDAO();
 	
 	//search Buildings by ID from the DB
@@ -32,7 +30,12 @@ public class FacilityService {
 		    }
 		} 
 
-		public void deleteBuilding(BuildingImpl b) {
-
+		public void deleteBuildingByID(int bID) {
+			try{
+				buiDAO.deleteBuilding(bID);
+			} catch (Exception se) {
+				System.err.println ("FacilityService: Threw a Exception deleting Building.");
+				System.err.println(se.getMessage());
+			}
 		}
 }
