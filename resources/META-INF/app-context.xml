@@ -28,8 +28,8 @@
     <bean class="com.fms.model.facility.RoomImpl"          id="room"               scope="prototype"/>
 
     <!--User beans-->
-    <bean class="com.fms.model.users.EmployeesImpl"        id="employees"          scope="prototype"/>
-    <bean class="com.fms.model.users.TenantsImpl"          id="tenants"            scope="prototype"/>
     <bean class="com.fms.model.users.UsersImpl"            id="users"              scope="prototype"/>
+    <bean class="com.fms.model.users.EmployeesImpl"        id="employees"          scope="prototype" parent="users"/>
+    <bean class="com.fms.model.users.TenantsImpl"          id="tenants"            scope="prototype" parent="users"/>
 
 </beans>

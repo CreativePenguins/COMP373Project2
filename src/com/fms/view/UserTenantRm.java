@@ -8,19 +8,19 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 /**
  * Created by Tyler on 4/4/16.
  */
-public class UserTenantAdd {
+public class UserTenantRm {
     public static void main (String args[]) throws Exception {
         ApplicationContext context = new ClassPathXmlApplicationContext("META-INF/app-context.xml");
         System.out.println("*#*#*#*#*#*#*# CONTEXT CREATED #*#*#*#*#*#*#*");
         UserService userService = (UserService) context.getBean("userService");
 
-        System.out.println("*#*#*#*#*#*#*# CREATING TENANT #*#*#*#*#*#*#*");
-        Tenants tenant = (Tenants) context.getBean("tenants");
-        tenant.setFirstName("Tom");
-        tenant.setLastName("Brown");
-        tenant.setPrimary(true);
-        tenant.setTenID(1);
+        System.out.println("*#*#*#*#*#*#*# DELETING TENANT #*#*#*#*#*#*#*");
+        Tenants tenant = userService.findTenantById(1);
 
-        userService.addTenant(tenant);
+        System.out.println("*#*#*#*#*#*#*# TENANT TO BE DELETED #*#*#*#*#*#*#*");
+        System.out.println("\t NAME: \t\t: " + tenant.getFirstName());
+
+        userService.deleteTenantbyID(tenant);
+
     }
 }
